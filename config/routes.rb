@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :templates
   devise_for :users
     root to: "home#index"
+
+  get 'admin', to: "categories#admin_index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
