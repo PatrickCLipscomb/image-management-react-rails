@@ -1,8 +1,8 @@
 <h2>Hi</h2>
 
 <%=link_to "Go To Admin Page", new_user_session_path %>
-<%=link_to "Logout", destroy_user_session_path(@user), :method => "delete" %>
-<%=link_to "new", new_template_path %>
+<%=link_to "Logout", destroy_user_session_path(@user), :method => "delete" %>||
+<%=link_to "New Template", new_template_path %>
 <% if current_user %>
   <p>
     the current user is <%= current_user.username %>
