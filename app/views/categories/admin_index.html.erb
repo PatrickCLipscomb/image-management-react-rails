@@ -8,7 +8,7 @@ categories admin_index page
           <%= cat.name %> - <%= cat.description %>
           <ul>
             <% cat.templates.each do |temp| %>
-              <li><%= temp.title %> - <%= temp.description %></li>
+              <li><%= link_to temp.title, template_path(temp) %> - <%= temp.description %></li>
             <% end %>
           </ul>
         </p>
