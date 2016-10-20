@@ -1,6 +1,5 @@
-
 <div class="container">
-  categories admin_index page
+  <%= @category.name %> show page
   <% if current_user.username == "AlphaAdmin"%>
     <table class="table table-striped table-bordered">
       <thead>
@@ -10,11 +9,13 @@
                             Choose a Category
                           </button>
                           <div class="dropdown-menu">
-                            <%= link_to @categories[0].name, category_path(@categories[0]) %>
+                            <%= link_to Category.all[0].name, category_path(Category.all[0]) %>
                             <br>
-                            <%= link_to @categories[1].name, category_path(@categories[1]) %>
+                            <%= link_to Category.all[1].name, category_path(Category.all[1]) %>
                             <br>
-                            <%= link_to @categories[2].name, category_path(@categories[2]) %>
+                            <%= link_to Category.all[2].name, category_path(Category.all[2]) %>
+                            <div class="dropdown-divider"></div>
+                            <%= link_to "All", admin_path %>
                           </div>
                         </div></th>
           <th>Title</th>
@@ -24,17 +25,16 @@
         </tr>
       </thead>
       <tbody>
-        <% @categories.each do |cat| %>
-        <% cat.templates.each do |temp| %>
+        <% @category.templates.each do |temp| %>
           <tr>
-            <th scope="row"><%= cat.name %></th>
+            <th scope="row"><%= @category.name %></th>
             <td><%= temp.title %></td>
             <td><%= temp.description %></td>
             <td><%= image_tag "sample_image.jpg", :class => "img-thumb" %></td>
             <td><%= link_to "Delete", template_path(temp), :class => "btn btn-danger", :method => "delete" %></td>
           </tr>
         <% end %>
-        <% end %>
+
       </tbody>
     </table>
   <%end %>
