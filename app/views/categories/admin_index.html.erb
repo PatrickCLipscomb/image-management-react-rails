@@ -28,14 +28,13 @@
         <% cat.templates.each do |temp| %>
           <tr>
             <th scope="row"><%= cat.name %></th>
-            <td><%= temp.title %></td>
+            <td><%= link_to temp.title, template_path(temp) %></td>
             <td><%= temp.description %></td>
             <td><%= image_tag "sample_image.jpg", :class => "img-thumb" %></td>
-            <td><%= link_to "Delete", template_path(temp), :class => "btn btn-danger", :method => "delete" %></td>
+            <td><%= link_to "Edit", edit_template_path(temp), :class => "btn btn-warning"%><%= link_to "Delete", template_path(temp), :class => "btn btn-danger", :method => "delete" %></td>
           </tr>
         <% end %>
-        <% end %>
-      </tbody>
-    </table>
-  <%end %>
-</div>
+      <% end %>
+    </tbody>
+  </table>
+<%end %>

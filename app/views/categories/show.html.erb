@@ -31,7 +31,7 @@
             <td><%= temp.title %></td>
             <td><%= temp.description %></td>
             <td><%= image_tag "sample_image.jpg", :class => "img-thumb" %></td>
-            <td><%= link_to "Delete", template_path(temp), :class => "btn btn-danger", :method => "delete" %></td>
+            <td><%= link_to "Edit", edit_template_path(temp), :class => "btn btn-warning"%><%= link_to "Delete", template_path(temp), :class => "btn btn-danger", :method => "delete" %></td>
           </tr>
         <% end %>
 
