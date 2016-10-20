@@ -5,6 +5,14 @@
   <%= f.text_field :title %>
   <%= f.label :description%>
   <%= f.text_field :description %>
-  
+  <% if @category %>
+    <p>
+      Previous Category: <%= @category.name %>
+    </p>
+  <% end %>
+  <% @categories.each do |cat|%>
+    <%= radio_button_tag(:category_id, cat.id)%>
+    <%= label_tag(:category, cat.name) %>
+  <%end%>
   <%= f.submit %>
 <%end%>

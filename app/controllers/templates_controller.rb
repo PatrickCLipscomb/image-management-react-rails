@@ -5,12 +5,14 @@ class TemplatesController < ApplicationController
   end
 
   def new
+    @categories = Category.all
     @template = Template.new
     render :new
   end
 
   def create
-    @template = Template.new(template_params)
+    @category = Category.find(params[:category_id])
+    @template = @category.templates.new(template_params)
     if @template.save
       flash[:notice] = "Template successfully added!"
       redirect_to template_path(@template)
@@ -20,7 +22,9 @@ class TemplatesController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     @template = Template.find(params[:id])
+    @category = @template.category
   end
 
   def update
@@ -45,6 +49,6 @@ class TemplatesController < ApplicationController
 
 private
   def template_params
-    params.require(:template).permit(:title, :description)
+    params.require(:template).permit(:title, :description, :category_id)
   end
 end
