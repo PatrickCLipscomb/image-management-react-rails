@@ -33,6 +33,16 @@ class TemplatesController < ApplicationController
     end
   end
 
+  def destroy
+    template = Template.find(params[:id])
+    if template.delete
+      flash[:notice] = template.title.capitalize + " Template Deleted"
+      redirect_to admin_path
+    else
+      flash[:alert] = "Template Delete Failed"
+    end
+  end
+
 private
   def template_params
     params.require(:template).permit(:title, :description)
