@@ -1,4 +1,5 @@
 <h2>Hi</h2>
+
 <%=link_to "Go To Admin Page", new_user_session_path %>
 <%=link_to "Logout", destroy_user_session_path(@user), :method => "delete" %>
 <% if current_user %>

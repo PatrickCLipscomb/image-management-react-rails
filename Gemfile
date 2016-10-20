@@ -42,7 +42,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'pry'
+  gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+  gem 'factory_girl_rails'
 end
 
 group :development do
