@@ -3,17 +3,15 @@ categories index page
 
 <ol>
   <% @categories.each do |cat| %>
-  <li>
-    <p>
-      <%= cat.name %> - <%= cat.description %>
-      <ul>
-        <% cat.templates.each do |temp| %>
-        <li><%= temp.title %> - <%= temp.description %>
-
-        </li>
-        <% end %>
-      </ul>
-    </p>
-  </li>
+    <li>
+      <p>
+        <%= cat.name %> - <%= cat.description %>
+        <ul>
+          <% cat.templates.each do |temp| %>
+            <li><%= temp.title %> - <%= temp.description %></li>
+          <% end %>
+        </ul>
+      </p>
+    </li>
   <% end %>
 </ol>

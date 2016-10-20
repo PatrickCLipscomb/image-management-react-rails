@@ -1,31 +1,30 @@
-categories admin_index page
+
 <div class="container">
-
-
-<% if current_user.username == "AlphaAdmin"%>
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Category</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Image</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @categories.each do |cat| %>
-      <% cat.templates.each do |temp| %>
+  categories admin_index page
+  <% if current_user.username == "AlphaAdmin"%>
+    <table class="table table-striped table-bordered">
+      <thead>
         <tr>
-          <th scope="row"><%= cat.name %></th>
-          <td><%= temp.title %></td>
-          <td><%= temp.description %></td>
-          <td><%= image_tag "sample_image.jpg", :class => "img-thumb" %></td>
-          <td><%= link_to "Delete", template_path(temp), :class => "btn btn-danger", :method => "delete" %></td>
+          <th>Category</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th>Actions</th>
         </tr>
-      <% end %>
-      <% end %>
-    </tbody>
-  </table>
-<%end %>
+      </thead>
+      <tbody>
+        <% @categories.each do |cat| %>
+        <% cat.templates.each do |temp| %>
+          <tr>
+            <th scope="row"><%= cat.name %></th>
+            <td><%= temp.title %></td>
+            <td><%= temp.description %></td>
+            <td><%= image_tag "sample_image.jpg", :class => "img-thumb" %></td>
+            <td><%= link_to "Delete", template_path(temp), :class => "btn btn-danger", :method => "delete" %></td>
+          </tr>
+        <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  <%end %>
 </div>
