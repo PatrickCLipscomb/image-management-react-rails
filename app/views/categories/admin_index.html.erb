@@ -1,18 +1,31 @@
 categories admin_index page
+<div class="container">
+
 
 <% if current_user.username == "AlphaAdmin"%>
-<ol>
-<% @categories.each do |cat| %>
-<li>
-  <p>
-    <%= cat.name %> - <%= cat.description %>
-    <ul>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |cat| %>
       <% cat.templates.each do |temp| %>
-      <li><%= temp.title %> - <%= temp.description %></li>
+        <tr>
+          <th scope="row"><%= cat.name %></th>
+          <td><%= temp.title %></td>
+          <td><%= temp.description %></td>
+          <td><%= image_tag "sample_image.jpg", :class => "img-thumb" %></td>
+          <td><%= link_to "Delete", template_path(temp), :class => "btn btn-danger", :method => "delete" %></td>
+        </tr>
       <% end %>
-    </ul>
-  </p>
-</li>
-<% end %>
-</ol>
+      <% end %>
+    </tbody>
+  </table>
 <%end %>
+</div>
