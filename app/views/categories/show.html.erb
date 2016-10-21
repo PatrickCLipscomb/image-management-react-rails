@@ -1,7 +1,7 @@
 <div class="container">
   <%= @category.name %> show page
   <% if current_user.username == "AlphaAdmin"%>
-    <table class="table table-striped table-bordered">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>Category <div class="btn-group">
@@ -26,7 +26,13 @@
       </thead>
       <tbody>
         <% @category.templates.each do |temp| %>
-          <tr>
+        <% if @category.name == "Social Media" %>
+          <tr class="social-media-tr">
+        <% elsif @category.name == "Advertising" %>
+          <tr class="advertising-tr">
+        <% elsif @category.name == "Marketing" %>
+          <tr class="website-graphics-tr">
+        <% end %>
             <th scope="row" id="<%=temp.id.to_s %>-temp-cat"><%= @category.name %></th>
             <td id="<%=temp.id.to_s %>-temp-title"><%= link_to temp.title, template_path(temp) %></td>
             <td id="<%=temp.id.to_s %>-temp-description"><%= temp.description %></td>
