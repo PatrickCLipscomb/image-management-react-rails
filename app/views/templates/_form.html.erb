@@ -1,6 +1,7 @@
 
 
-<%=form_for @template, :class => "form-inline", remote: true do |f| %>
+<%=form_for @template, :html => {:id => @template.id.to_s + "-form"},  :class => "form-inline", remote: true do |f| %>
+
 <div class="form-group">
   <%= f.label :title%>
   <%= f.text_field :title, :class => "form-control" %>
@@ -18,11 +19,16 @@
   <div class="col-sm-11 col-sm-offset-1">
     <% @categories.each do |cat|%>
       <div class="form-check">
-        <%= radio_button_tag(:category_id, cat.id)%>
-        <%= label_tag(:category, cat.name)%>
+        <% if @template.category_id == cat.id%>
+          <%= radio_button_tag(:category_id, cat.id, checked = true)%>
+          <%= label_tag(:category, cat.name)%>
+        <% else %>
+          <%= radio_button_tag(:category_id, cat.id)%>
+          <%= label_tag(:category, cat.name)%>
+        <% end %>
       </div>
     <% end %>
   </div>
 </fieldset>
-  <%= f.submit %>
+  <%= f.submit :class => "btn btn-success" %>
 <%end%>

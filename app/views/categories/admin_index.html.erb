@@ -26,7 +26,7 @@
       <tbody>
         <% @categories.each do |cat| %>
         <% cat.templates.each do |temp| %>
-          <tr id="<%=temp.id.to_s%>delete">
+          <tr>
             <th scope="row" id="<%=temp.id.to_s %>-temp-cat"><%= cat.name %></th>
             <td id="<%=temp.id.to_s %>-temp-title"><%= link_to temp.title, template_path(temp) %></td>
             <td id="<%=temp.id.to_s %>-temp-description"><%= temp.description %></td>

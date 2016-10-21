@@ -31,7 +31,9 @@ class TemplatesController < ApplicationController
   end
 
   def update
+
     @template = Template.find(params[:id])
+    @template.update(category_id: params[:category_id])
     if @template.update(template_params)
       respond_to do |format|
         format.js
@@ -55,6 +57,6 @@ class TemplatesController < ApplicationController
 
 private
   def template_params
-    params.require(:template).permit(:title, :description, :category_id, :id)
+    params.require(:template).permit(:title, :description, :category_id)
   end
 end

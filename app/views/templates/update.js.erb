@@ -1,4 +1,6 @@
-$('#<%=@template.id.to_s%>-temp-cat').html('<th scope="row" id=<%=@template.id.to_s%> + "-temp-cat"><%= @template.category.name %></th>');
+$('#<%=@template.id.to_s%>-temp-cat').html('<th scope="row" id="<%=@template.id.to_s%>-temp-cat"><%= @template.category.name %></th>');
 $('#<%=@template.id.to_s%>-temp-title').html('<td id="<%=@template.id.to_s%>-temp-title"><%= link_to @template.title, template_path(@template) %></td>');
 $('#<%=@template.id.to_s%>-temp-description').html('<td id="<%=@template.id.to_s %>-temp-description"><%= @template.description %></td>');
 $('#<%=@template.id.to_s%>-temp-img').html('<td id="<%=@template.id.to_s %>-temp-img"><%= image_tag "sample_image.jpg", :class => "img-thumb" %></td>');
+$('#<%=@template.id.to_s%>-form').remove();
+$('#<%= @template.id %>-template').show()
