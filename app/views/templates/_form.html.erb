@@ -1,18 +1,28 @@
-<%= render "layouts/errors", :object => @template %>
 
-<%=form_for (@template) do |f| %>
+
+<%=form_for @template, :class => "form-inline",  remote: true do |f| %>
+<div class="form-group">
   <%= f.label :title%>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, :class => "form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :description%>
-  <%= f.text_field :description %>
+  <%= f.text_area :description, :class => "form-control" %>
+</div>
+<fieldset class="form-group row">
   <% if @category %>
-    <p>
-      Previous Category: <%= @category.name %>
-    </p>
+    <p class="col-sm-offset-2">Previous: <%= @category.name %></p>
+  <% else %>
+    <p>Categories</p>
   <% end %>
-  <% @categories.each do |cat|%>
-    <%= radio_button_tag(:category_id, cat.id)%>
-    <%= label_tag(:category, cat.name) %>
-  <%end%>
+  <div class="col-sm-10 col-sm-offset-2">
+    <% @categories.each do |cat|%>
+    <div class="form-check">
+      <%= label_tag(:category, cat.name)%>
+      <%= radio_button_tag(:category_id, cat.id)%>
+    </div>
+    <% end %>
+  </div>
+</fieldset>
   <%= f.submit %>
 <%end%>

@@ -25,13 +25,19 @@ class TemplatesController < ApplicationController
     @categories = Category.all
     @template = Template.find(params[:id])
     @category = @template.category
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
     @template = Template.find(params[:id])
     if @template.update(template_params)
+      respond_to do |format|
+        format.js
+        format.html {redirect_to template_path(@template)}
+      end
       flash[:notice] = "Template successfully updated!"
-      redirect_to template_path(@template)
     else
       render :edit
     end
@@ -49,6 +55,6 @@ class TemplatesController < ApplicationController
 
 private
   def template_params
-    params.require(:template).permit(:title, :description, :category_id)
+    params.require(:template).permit(:title, :description, :category_id, :id)
   end
 end
