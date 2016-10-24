@@ -74,12 +74,12 @@ class Template extends BaseComponent {
     }
 
     templateRow() {
-      var category = this.catFunc(this.props.categories, this.props.template.category_id);
+      var categoryName = this.catFunc(this.props.categories, this.props.template.category_id);
         return (
-            <tr>
+            <tr className={categoryName}>
                 <td>{this.props.template.title}</td>
                 <td>{this.props.template.description}</td>
-                <td>{category}</td>
+                <td>{categoryName}</td>
                 <td>
                     <a className="btn btn-default" onClick={this.handleToggle}>Edit</a>
                     <a className="btn btn-danger" onClick={this.handleDelete}>Delete</a>
@@ -89,8 +89,9 @@ class Template extends BaseComponent {
     }
 
     templateForm(categoryArray) {
+      var categoryName = this.catFunc(this.props.categories, this.props.template.category_id);
         return (
-            <tr>
+            <tr className={categoryName}>
                 <td>
                     <input className="form-control" type="text" defaultValue={this.props.template.title} ref="title"/>
                 </td>
