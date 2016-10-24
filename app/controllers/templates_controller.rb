@@ -11,6 +11,7 @@ class TemplatesController < ApplicationController
   end
 
   def create
+    @categories = Category.all
     @category = Category.find(params[:category_id])
     @template = @category.templates.new(template_params)
     if @template.save
@@ -60,6 +61,6 @@ class TemplatesController < ApplicationController
 
 private
   def template_params
-    params.require(:template).permit(:title, :description, :category_id)
+    params.require(:template).permit(:title, :description, :category_id, :image)
   end
 end

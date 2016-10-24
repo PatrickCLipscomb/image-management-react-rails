@@ -1,6 +1,6 @@
 
 
-<%=form_for @template, :html => {:id => @template.id.to_s + "-form"},  :class => "form-inline", remote: true do |f| %>
+<%=form_for @template, :html => {:id => @template.id.to_s + "-form"},  :class => "form-inline" do |f| %>
 
 <div class="form-group">
   <%= f.label :title%>
@@ -10,7 +10,7 @@
   <%= f.label :description%>
   <%= f.text_area :description, :class => "form-control" %>
 </div>
-<fieldset class="form-group row">
+  <fieldset class="form-group row">
   <div class="col-sm-11 col-sm-offset-1">
     <p>Categories</p>
     <% @categories.each do |cat|%>
@@ -25,6 +25,10 @@
       </div>
     <% end %>
   </div>
-</fieldset>
+  </fieldset>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control'%>
+  </div>
   <%= f.submit :class => "btn btn-success" %>
 <%end%>
