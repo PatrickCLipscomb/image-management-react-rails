@@ -16,7 +16,10 @@ class TemplatesController < ApplicationController
     @template = @category.templates.new(template_params)
     if @template.save
       flash[:notice] = "Template successfully added!"
-      redirect_to template_path(@template)
+      respond_to do |format|
+        format.json {render json: @template}
+        format.html {redirect_to template_path(@template)}
+      end
     else
       render :new
     end

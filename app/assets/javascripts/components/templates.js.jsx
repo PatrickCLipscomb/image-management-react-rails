@@ -76,7 +76,7 @@ class Templates extends BaseComponent {
             <div className="templates">
                 <h2 className="title"> Templates </h2>
                 <h5 className="title">Add a template</h5>
-
+                <TemplateForm handleNewTemplate={this.addTemplate} categories={this.state.categories} />
                 <hr />
                 <table className="table table-bordered">
                     <thead>
