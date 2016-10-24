@@ -31,13 +31,13 @@ class TemplatesController < ApplicationController
   end
 
   def update
-
     @template = Template.find(params[:id])
-    @template.update(category_id: params[:category_id])
+    @category = @template.category
     if @template.update(template_params)
       respond_to do |format|
         format.js
         format.html {redirect_to template_path(@template)}
+        format.json {render json: @template}
       end
       flash[:notice] = "Template successfully updated!"
     else
@@ -49,7 +49,10 @@ class TemplatesController < ApplicationController
     template = Template.find(params[:id])
     if template.delete
       flash[:notice] = template.title.capitalize + " Template Deleted"
-      redirect_to admin_path
+      respond_to do |format|
+        format.json { head :no_content }
+        format.html { redirect_to admin_path }
+      end
     else
       flash[:alert] = "Template Delete Failed"
     end

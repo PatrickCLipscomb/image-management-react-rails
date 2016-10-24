@@ -11,12 +11,8 @@
   <%= f.text_area :description, :class => "form-control" %>
 </div>
 <fieldset class="form-group row">
-  <% if @category %>
-    <p class="col-sm-offset-2">Previous: <%= @category.name %></p>
-  <% else %>
-    <p>Categories</p>
-  <% end %>
   <div class="col-sm-11 col-sm-offset-1">
+    <p>Categories</p>
     <% @categories.each do |cat|%>
       <div class="form-check">
         <% if @template.category_id == cat.id%>
