@@ -7,37 +7,22 @@ class Templates extends BaseComponent {
         this.state = {
             categories: props.data[0],
             templates: props.data[1],
-            filteredTemplates: props.data[1]
+            selectedCatID: 'All'
         };
     }
 
     addTemplate(template) {
-        if (this.state.filteredTemplates[0].category_id === template.category_id) {
-          var index = this.state.filteredTemplates.indexOf(template)
-          var templatesFiltered = React.addons.update(this.state.filteredTemplates, {$push: [template]})
-          this.setState({filteredTemplates: templatesFiltered})
-        }
         var templates = React.addons.update(this.state.templates, {$push: [template]});
         this.setState({ templates: templates });
     }
 
     deleteTemplate(template) {
-        if (this.state.filteredTemplates.includes(template)) {
-          var filtIndex = this.state.filteredTemplates.indexOf(template)
-          var templatesFiltered = React.addons.update(this.state.filteredTemplates, {$splice: [[index, 1]]});
-          this.setState({filteredTemplates: templatesFiltered})
-        }
         var index = this.state.templates.indexOf(template);
         var templates = React.addons.update(this.state.templates, {$splice: [[index, 1]]});
         this.setState({ templates: templates });
     }
 
     handleEditTemplate(template, data) {
-        if (this.state.filteredTemplates.includes(template)) {
-          var filtIndex = this.state.filteredTemplates.indexOf(template)
-          var templatesFiltered = React.addons.update(this.state.filteredTemplates, {$splice: [[index, 1, data]]});
-          this.setState({filteredTemplates: templatesFiltered})
-        }
         var index = this.state.templates.indexOf(template);
         var templates = React.addons.update(this.state.templates, {$splice: [[index, 1, data]]});
         this.setState({ templates: templates} );
@@ -45,38 +30,25 @@ class Templates extends BaseComponent {
 
 
     handleCatCycle(event) {
-      var selected = event.currentTarget.value
-      var templates = this.state.templates
-      var categories = this.state.categories
-      var filteredCategories = []
-      var catName = function(category_id) {
-        var name;
-        categories.forEach(function(cat) {
-          if (cat.id === category_id) {
-            name = cat.name
-          }
-        })
-        return name
-      }
-      if (selected === 'All') {
-        templates.forEach(function(template) {
-          filteredCategories.push(template)
-        })
-      } else {
-        templates.forEach(function(template) {
-          if (catName(template.category_id) === selected) {
-            filteredCategories.push(template)
-          }
-        })
-      }
-      this.setState({filteredTemplates: filteredCategories})
+      var id = event.currentTarget.value
+      this.setState({selectedCatID: id})
     }
-    // have the filter filter by a selected option that provides category id values. Pull those values from the categories, store it in a variable, send to state, then use those ids to filter the templates!
+ 
     render() {
-        var templates = this.state.filteredTemplates.map((template, index) => {
+        var chosenTemplates = [];
+        var currentState = this.state.selectedCatID
+        this.state.templates.forEach(function(template) {
+          if (currentState === "All") {
+            chosenTemplates.push(template)
+          } else if (template.category_id === parseInt(currentState)) {
+            chosenTemplates.push(template)
+          }
+        })
+        var templates = chosenTemplates.map((template, index) => {
             return <Template key={template.id} template={template} categories={this.state.categories}
                            handleDeleteTemplate={this.deleteTemplate} handleEditTemplate={this.handleEditTemplate} />
-        });
+        })
+        var categoryArray = this.state.categories
         return (
             <div className="templates">
                 <h2 className="title"> Templates </h2>
@@ -90,10 +62,10 @@ class Templates extends BaseComponent {
                             <th> Description </th>
                             <th> Category <br />
                               <select value={this.state.catCycle} onChange={this.handleCatCycle}>
-                                <option value="All">All</option>
-                                <option value="Advertising">Advertising</option>
-                                <option value="Social Media">Social Media</option>
-                                <option value="Website Graphics">Website Graphics</option>
+                                <option value="All">All Categories</option>
+                                <option value={categoryArray[0].id}>{categoryArray[0].name}</option>
+                                <option value={categoryArray[1].id}>{categoryArray[1].name}</option>
+                                <option value={categoryArray[2].id}>{categoryArray[2].name}</option>
                               </select>
                             </th>
                             <th> Actions </th>

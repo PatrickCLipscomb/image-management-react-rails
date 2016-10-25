@@ -15,10 +15,10 @@ class TemplatesController < ApplicationController
     @category = Category.find(params[:category_id])
     @template = @category.templates.new(template_params)
     if @template.save
-      flash[:notice] = "Template successfully added!"
+      flash[:notice] = @template.title + " Template successfully added!"
       respond_to do |format|
         format.json {render json: @template}
-        format.html {redirect_to template_path(@template)}
+        format.html {redirect_to react_path}
       end
     else
       render :new
