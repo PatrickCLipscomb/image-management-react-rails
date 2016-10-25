@@ -32,7 +32,7 @@ class TemplateForm extends BaseComponent {
           method: 'POST',
           url: 'templates',
           dataType: 'JSON',
-          data: {template: state},
+          data: {template: state, category_id: this.state.category_id},
           success: ( (data) => {
             this.props.handleNewTemplate(data);
             this.setState(initialState);
