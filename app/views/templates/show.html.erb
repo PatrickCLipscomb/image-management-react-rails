@@ -2,7 +2,8 @@ Show page for individual template
 
 <h1><%= @template.title  %></h1>
 <h2><%= @template.description  %></h2>
-
-<%= link_to "Edit", edit_template_path(@template)%>
+<%= image_tag @template.image.url %></td>
+<br>
+<%= link_to "Edit", edit_template_path(@template)%> ||
 
 <%= link_to 'Back to table', admin_path %>
