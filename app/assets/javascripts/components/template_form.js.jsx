@@ -22,15 +22,22 @@ class TemplateForm extends BaseComponent {
     }
 
     valid() {
-        return this.state.title && this.state.description;
+        return this.state.title && this.state.description && this.state.category_id;
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        $.post('', {template: this.state}, (data) => {
+        var state = this.state;
+        $.ajax({
+          method: 'POST',
+          url: 'templates',
+          dataType: 'JSON',
+          data: {template: state},
+          success: ( (data) => {
             this.props.handleNewTemplate(data);
             this.setState(initialState);
-        });
+          })
+        })
     }
 
     handleCatChange(event) {
@@ -55,7 +62,7 @@ class TemplateForm extends BaseComponent {
                   <option value={categoryArray[1].id.toString()}>{categoryArray[1].name}</option>
                   <option value={categoryArray[2].id.toString()}>{categoryArray[2].name}</option>
                 </select>
-                <button type="submit" className="btn btn-primary" disabled={!this.valid}>
+                <button type="submit" className="btn btn-primary" disabled={!this.valid()}>
                     Create Template
                 </button>
             </form>

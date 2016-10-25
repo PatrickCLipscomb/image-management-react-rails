@@ -12,6 +12,11 @@ class Templates extends BaseComponent {
     }
 
     addTemplate(template) {
+        if (this.state.filteredTemplates[0].category_id === template.category_id) {
+          var index = this.state.filteredTemplates.indexOf(template)
+          var templatesFiltered = React.addons.update(this.state.filteredTemplates, {$push: [template]})
+          this.setState({filteredTemplates: templatesFiltered})
+        }
         var templates = React.addons.update(this.state.templates, {$push: [template]});
         this.setState({ templates: templates });
     }
@@ -66,7 +71,7 @@ class Templates extends BaseComponent {
       }
       this.setState({filteredTemplates: filteredCategories})
     }
-
+    // have the filter filter by a selected option that provides category id values. Pull those values from the categories, store it in a variable, send to state, then use those ids to filter the templates!
     render() {
         var templates = this.state.filteredTemplates.map((template, index) => {
             return <Template key={template.id} template={template} categories={this.state.categories}
