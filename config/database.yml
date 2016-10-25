@@ -8,6 +8,9 @@ default: &default
   adapter: sqlite3
   pool: 5
   timeout: 5000
+  host: localhost
+  username: rails
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
 
 development:
   <<: *default
@@ -23,3 +26,5 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+  username: rails
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
