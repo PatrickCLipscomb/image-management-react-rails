@@ -27,11 +27,11 @@
       <tbody>
         <% @category.templates.each do |temp| %>
         <% if @category.name == "Social Media" %>
-          <tr class="social-media-tr">
+          <tr class="Social">
         <% elsif @category.name == "Advertising" %>
-          <tr class="advertising-tr">
+          <tr class="Advertising">
         <% elsif @category.name == "Website Graphics" %>
-          <tr class="website-graphics-tr">
+          <tr class="Website">
         <% end %>
             <th scope="row" id="<%=temp.id.to_s %>-temp-cat"><%= @category.name %></th>
             <td id="<%=temp.id.to_s %>-temp-title"><%= link_to temp.title, template_path(temp) %></td>

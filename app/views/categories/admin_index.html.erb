@@ -1,6 +1,7 @@
 
 <div class="container">
   categories admin_index page
+  <span class="pull-right">Add Templates</span>
   <% if current_user.username == "AlphaAdmin"%>
     <table class="table  table-bordered">
       <thead>
@@ -27,11 +28,11 @@
         <% @categories.each do |cat| %>
         <% cat.templates.each do |temp| %>
           <% if cat.name == "Social Media" %>
-            <tr class="social-media-tr">
+            <tr class="Social">
           <% elsif cat.name == "Advertising" %>
-            <tr class="advertising-tr">
+            <tr class="Advertising">
           <% elsif cat.name == "Website Graphics" %>
-            <tr class="website-graphics-tr">
+            <tr class="Website">
           <% end %>
             <th scope="row" id="<%=temp.id.to_s %>-temp-cat"><%= cat.name %></th>
             <td id="<%=temp.id.to_s %>-temp-title"><%= link_to temp.title, template_path(temp) %></td>
