@@ -1,9 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// .img-thumb {
-//   max-height: 30px;
-// }
+.img-thumb {
+  width: 80px;
+  height: 80px;
+  // max-height: 50px;
+}
 
 .Social {
   background-color: #B2EBF2;
