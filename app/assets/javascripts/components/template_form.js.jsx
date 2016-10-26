@@ -4,13 +4,14 @@
 var initialState = {
     title: '',
     description: '',
-    category_id: ''
+    category_id: '',
+    image: ''
 };
 
 class TemplateForm extends BaseComponent {
     constructor(props) {
         super(props);
-        this._bind('handleChange', 'valid', 'handleSubmit', 'handleCatChange');
+        this._bind('handleChange', 'valid', 'handleSubmit', 'handleCatChange', 'imageUpload');
         this.state = initialState;
     }
 
@@ -44,10 +45,22 @@ class TemplateForm extends BaseComponent {
       this.setState({category_id: event.currentTarget.value});
     }
 
+    imageUpload(){
+      event.preventDefault()
+      var file = this.refs.image.files[0];
+      console.log(file)
+      console.log(this.state.category_id)
+      var reader = new FileReader();
+      reader.onloadend = () => {
+        this.setState({image: file})
+        console.log(this.state.image)
+      }
+    }
+
     render() {
       var categoryArray = this.props.categories
         return (
-            <form className="form-inline" onSubmit={this.handleSubmit}>
+            <form className="form-inline" encType="multipart/form-data" onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <input type="text" className="form-control" placeholder="Title"
                            name="title" value={this.state.title} onChange={this.handleChange} />
@@ -62,6 +75,9 @@ class TemplateForm extends BaseComponent {
                   <option value={categoryArray[1].id.toString()}>{categoryArray[1].name}</option>
                   <option value={categoryArray[2].id.toString()}>{categoryArray[2].name}</option>
                 </select>
+                <div className="form-group">
+                    <input type="file" ref="image" name="image" multiple="true" className="form-control" value={this.state.image} onChange={this.imageUpload} />
+                </div>
                 <button type="submit" className="btn btn-primary" disabled={!this.valid()}>
                     Create Template
                 </button>

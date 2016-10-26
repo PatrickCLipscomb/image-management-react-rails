@@ -14,6 +14,7 @@ class TemplatesController < ApplicationController
     @categories = Category.all
     @category = Category.find(params[:category_id])
     @template = @category.templates.new(template_params)
+    binding.pry
     if @template.save
       flash[:notice] = @template.title + " Template successfully added!"
       respond_to do |format|
