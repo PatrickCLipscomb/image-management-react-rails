@@ -5,7 +5,9 @@ var initialState = {
     title: '',
     description: '',
     category_id: '',
-    image: ''
+    image: '',
+    errors: null,
+    percentLoaded: null
 };
 
 class TemplateForm extends BaseComponent {
@@ -66,8 +68,8 @@ class TemplateForm extends BaseComponent {
                            name="title" value={this.state.title} onChange={this.handleChange} />
                 </div>
                 <div className="form-group">
-                    <input type="text" className="form-control" placeholder="Description"
-                           name="description" value={this.state.description} onChange={this.handleChange} />
+                    <textarea className="form-control" placeholder="Description"
+                           name="description" value={this.state.description} onChange={this.handleChange}></textarea>
                 </div>
                 <select value={this.state.category} onChange={this.handleCatChange}>
                   <option value=''>None</option>

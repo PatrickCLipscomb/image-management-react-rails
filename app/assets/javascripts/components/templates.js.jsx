@@ -33,7 +33,7 @@ class Templates extends BaseComponent {
       var id = event.currentTarget.value
       this.setState({selectedCatID: id})
     }
- 
+
     render() {
         var chosenTemplates = [];
         var currentState = this.state.selectedCatID
@@ -51,15 +51,10 @@ class Templates extends BaseComponent {
         var categoryArray = this.state.categories
         return (
             <div className="templates">
-                <h2 className="title"> Templates </h2>
-                <h5 className="title">Add a template</h5>
-                <TemplateForm handleNewTemplate={this.addTemplate} categories={this.state.categories} />
-                <hr />
+                <br />
                 <table className="table table-bordered">
                     <thead>
                         <tr>
-                            <th> Title </th>
-                            <th> Description </th>
                             <th> Category <br />
                               <select value={this.state.catCycle} onChange={this.handleCatCycle}>
                                 <option value="All">All Categories</option>
@@ -68,6 +63,9 @@ class Templates extends BaseComponent {
                                 <option value={categoryArray[2].id}>{categoryArray[2].name}</option>
                               </select>
                             </th>
+                            <th> Title </th>
+                            <th> Description </th>
+                            <th> File Attachment </th>
                             <th> Actions </th>
                         </tr>
                     </thead>
@@ -75,6 +73,7 @@ class Templates extends BaseComponent {
                     {templates}
                     </tbody>
                 </table>
+                <TemplateForm handleNewTemplate={this.addTemplate} categories={this.state.categories} />
             </div>
         );
     }

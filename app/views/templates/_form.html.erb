@@ -1,34 +1,24 @@
 
 
-<%=form_for @template, :html => {:id => @template.id.to_s + "-form"},  :class => "form-inline" do |f| %>
-
-<div class="form-group">
-  <%= f.label :title%>
-  <%= f.text_field :title, :class => "form-control" %>
-</div>
-<div class="form-group">
-  <%= f.label :description%>
-  <%= f.text_area :description, :class => "form-control" %>
-</div>
-  <fieldset class="form-group row">
-  <div class="col-sm-11 col-sm-offset-1">
-    <p>Categories</p>
-    <% @categories.each do |cat|%>
-      <div class="form-check">
-        <% if @template.category_id == cat.id%>
-          <%= radio_button_tag(:category_id, cat.id, checked = true)%>
-          <%= label_tag(:category, cat.name)%>
-        <% else %>
-          <%= radio_button_tag(:category_id, cat.id)%>
-          <%= label_tag(:category, cat.name)%>
-        <% end %>
-      </div>
+<%=form_for @template, :html => {:id => @template.id.to_s + "-form"} do |f| %>
+<div class="form-inline">
+  <%= f.label :category_id%>
+  <%= f.select(:category_id) do %>
+    <% @categories.each do |cat| %>
+      <%= content_tag(:option, cat.name, value: cat.id) %>
     <% end %>
-  </div>
-  </fieldset>
+  <% end %>
+    <div class="form-group">
+      <%= f.text_field :title, :class => "form-control", :placeholder => "Title" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_area :description, :class => "form-control", :cols => '30', :rows => '2', :placeholder => "Description" %>
+    </div>
   <div class="form-group">
-    <%= f.label :image %>
+    <%= f.label :image, "PSD File" %>
     <%= f.file_field :image, class: 'form-control'%>
   </div>
-  <%= f.submit :class => "btn btn-success" %>
+  <%= f.submit :class => "btn btn-info btn-sm" %>
+</div>
+
 <%end%>
