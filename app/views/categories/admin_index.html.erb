@@ -1,7 +1,9 @@
 
 <div class="container">
   categories admin_index page
-  <span class="pull-right">Add Templates</span>
+
+  <%=link_to "+", new_template_path, :method => :get, class: "plusButton pull-right btn btn-info btn-sm"%>
+
   <% if current_user.username == "AlphaAdmin"%>
     <table class="table  table-bordered">
       <thead>
@@ -37,7 +39,7 @@
             <th scope="row" id="<%=temp.id.to_s %>-temp-cat"><%= cat.name %></th>
             <td id="<%=temp.id.to_s %>-temp-title"><%= link_to temp.title, template_path(temp) %></td>
             <td id="<%=temp.id.to_s %>-temp-description"><%= temp.description %></td>
-            <td id="<%=temp.id.to_s %>-temp-img"><%= image_tag "sample_image.jpg", :class => "img-thumb" %></td>
+            <td id="<%=temp.id.to_s %>-temp-img "><%= image_tag temp.image.url, class: "img-thumb" %></td>
             <td><%= link_to "Edit", edit_template_path(temp), :id => temp.id.to_s + "-template", :class => "btn btn-warning", remote: true%><%= link_to "Delete", template_path(temp), :class => "btn btn-danger", :method => "delete" %></td>
           </tr>
         <% end %>
