@@ -12,6 +12,8 @@ development:
   database: db/development.sqlite3
 
 production:
+  adapter: postgresql
+  host: localhost
   database: digital_resources_production
   username: rails
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
