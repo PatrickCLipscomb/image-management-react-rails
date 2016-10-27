@@ -77,12 +77,13 @@ class Template extends BaseComponent {
       var categoryName = this.catFunc(this.props.categories, this.props.template.category_id);
         return (
             <tr className={categoryName}>
+                <td>{categoryName}</td>
                 <td>{this.props.template.title}</td>
                 <td>{this.props.template.description}</td>
-                <td>{categoryName}</td>
+                <td>{this.props.template.image_file_name}</td>
                 <td>
-                    <a className="btn btn-default" onClick={this.handleToggle}>Edit</a>
-                    <a className="btn btn-danger" onClick={this.handleDelete}>Delete</a>
+                    <a className="btn btn-default glyphicon glyphicon-pencil inline-glyph" onClick={this.handleToggle}></a>
+                    <a className="btn btn-danger glyphicon glyphicon-trash inline-glyph" onClick={this.handleDelete}></a>
                 </td>
             </tr>
         );
@@ -93,12 +94,6 @@ class Template extends BaseComponent {
         return (
             <tr className={categoryName}>
                 <td>
-                    <input className="form-control" type="text" defaultValue={this.props.template.title} ref="title"/>
-                </td>
-                <td>
-                    <input className="form-control" type="text" defaultValue={this.props.template.description} ref="description"/>
-                </td>
-                <td>
                   <select value={this.state.categoryID} onChange={this.handleCatChange}>
                     <option value={categoryArray[0].id.toString()}>{categoryArray[0].name}</option>
                     <option value={categoryArray[1].id.toString()}>{categoryArray[1].name}</option>
@@ -106,8 +101,17 @@ class Template extends BaseComponent {
                   </select>
                 </td>
                 <td>
-                    <a className="btn btn-default" onClick={this.handleEdit}>Update</a>
-                    <a className="btn btn-danger" onClick={this.handleToggle}>Cancel</a>
+                    <input className="form-control" type="text" defaultValue={this.props.template.title} ref="title"/>
+                </td>
+                <td>
+                    <input className="form-control" type="text" defaultValue={this.props.template.description} ref="description"/>
+                </td>
+                <td>{this.props.template.image_file_name}</td>
+                <td>
+                  <div class="btn-group inline">
+                    <a className="btn btn-default glyphicon glyphicon-ok inline-glyph" onClick={this.handleEdit}></a>
+                    <a className="btn btn-danger glyphicon glyphicon-remove inline-glyph" onClick={this.handleToggle}></a>
+                  </div>
                 </td>
             </tr>
         );
