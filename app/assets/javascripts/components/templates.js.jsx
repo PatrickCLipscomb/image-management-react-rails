@@ -42,6 +42,17 @@ class Templates extends BaseComponent {
             chosenTemplates.push(template)
           } else if (template.category_id === parseInt(currentState)) {
             chosenTemplates.push(template)
+            chosenTemplates = chosenTemplates.sort(function(a, b) {
+              var firstTitle = a.title.toLowerCase();
+              var secondTitle = b.title.toLowerCase();
+              if (firstTitle < secondTitle) {
+                return -1;
+              } else if (firstTitle > secondTitle) {
+                return 1;
+              } else {
+                return 0;
+              }
+            })
           }
         })
         var templates = chosenTemplates.map((template, index) => {
