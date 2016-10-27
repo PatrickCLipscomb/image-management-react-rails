@@ -84,7 +84,6 @@ class Templates extends BaseComponent {
                     {templates}
                     </tbody>
                 </table>
-                <TemplateForm handleNewTemplate={this.addTemplate} categories={this.state.categories} />
             </div>
         );
     }
