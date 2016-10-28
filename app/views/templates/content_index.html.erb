@@ -1,0 +1,9 @@
+non-admin user page
+
+first display user image
+<% @templates.each do |temp| %>
+  <% if (temp.image_file_name != nil) && (temp.image_file_name != "pokemon_cover.psd")%>
+    <%= image_tag temp.image%>
+    <%= link_to temp.title + " Page", template_path(temp) %>
+  <% end %>
+<% end %>

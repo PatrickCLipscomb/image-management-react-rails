@@ -4,6 +4,10 @@ class TemplatesController < ApplicationController
     render json: @templates = Template.all.order('category_id asc').order('title asc')
   end
 
+  def content_index
+    @templates = Template.all
+  end
+
   def show
     # @category = Category.find(params[:category_id])
     @template = Template.find(params[:id])

@@ -23,6 +23,7 @@ class Templates extends BaseComponent {
       $.ajax({
         method: 'GET',
         url: '/templates',
+        datatype: 'JSON',
         success: (templates) => {
           this.setState({templates: templates})
         }
