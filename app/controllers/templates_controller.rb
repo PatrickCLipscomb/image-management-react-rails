@@ -1,4 +1,9 @@
 class TemplatesController < ApplicationController
+
+  def index
+    render json: @templates = Template.all.order('category_id asc').order('title asc')
+  end
+
   def show
     # @category = Category.find(params[:category_id])
     @template = Template.find(params[:id])
@@ -19,6 +24,7 @@ class TemplatesController < ApplicationController
       respond_to do |format|
         format.json {render json: @template}
         format.html {redirect_to react_path}
+        format.js
       end
     else
       render :new

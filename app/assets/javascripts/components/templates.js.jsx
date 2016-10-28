@@ -3,12 +3,30 @@
 class Templates extends BaseComponent {
     constructor(props) {
         super();
-        this._bind('addTemplate', 'deleteTemplate', 'handleEditTemplate', 'handleCatCycle');
+        this._bind('addTemplate', 'deleteTemplate', 'handleEditTemplate', 'handleCatCycle', 'fetchTemplates');
         this.state = {
             categories: props.data[0],
             templates: props.data[1],
             selectedCatID: 'All'
         };
+    }
+
+    componentDidMount() {
+      this.timer = setInterval( () => this.fetchTemplates(), 2000);
+    }
+
+    componentWillUnmount() {
+      clearInterval(this.timer);
+    }
+
+    fetchTemplates() {
+      $.ajax({
+        method: 'GET',
+        url: '/templates',
+        success: (templates) => {
+          this.setState({templates: templates})
+        }
+      })
     }
 
     addTemplate(template) {
