@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :templates
   devise_for :users
-    root => "home#index"
+    root :to => "home#index"
 
   get 'admin' => "categories#admin_index"
   get 'react' => "categories#react_index"
