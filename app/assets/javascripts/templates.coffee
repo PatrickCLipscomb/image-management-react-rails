@@ -9,6 +9,8 @@ class AvatarCropper
     $('#cropbox').Jcrop
       onSelect: @update
       onChange: @update
+      setSelect: [0, 0, 200, 200]
+      aspectRatio: 1
 
   update: (coords) =>
     $('#template_crop_x').val(coords.x)

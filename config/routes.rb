@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   resources :categories
-  resources :templates
+  resources :templates do
+    member do
+      patch 'crop'
+    end
+  end
   devise_for :users
     root to: "home#index"
 
