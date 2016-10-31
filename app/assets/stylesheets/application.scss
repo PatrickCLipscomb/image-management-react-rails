@@ -32,3 +32,46 @@
 .inline-glyph {
   display: inline;
 }
+
+
+// front-end
+
+html, body {
+  background-color: #F0CCC0;
+}
+.pageBox{
+  background-color: white;
+}
+.startingQ{
+  font-family: 'Titillium Web', sans-serif;
+  text-align: center;
+  font-weight: 900;
+  font-size: 60px;
+  color: #F1592A;
+}
+.container-item {
+  border: 2px solid black;
+  margin: 2px;
+  width: 32%;
+  min-width: 175px;
+  padding: 5px;
+  color: #F1592A;
+
+}
+
+.itemList {
+  display: flex;
+  flex-wrap:wrap;
+  flex-wrap:wrap;
+}
+
+.pageContent {
+  display: flex;
+
+}
+.categoryButton {
+  border-radius: 25px;
+  color: white;
+  background-color: #F1592A;
+  font-weight: bolder;
+}
