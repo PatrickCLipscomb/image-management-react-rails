@@ -1,21 +1,19 @@
 'use strict';
 
 class Categories extends BaseComponent {
-  constructor() {
+  constructor(props) {
     super();
     this._bind();
     this.state = {
-      categories: [
-      {id:1, name:"Social Media", img:"/assets/socialmedia.png"},
-      {id:2, name:"Web Ad", img:"/assets/webad.png"},
-      {id:3, name:"Web Image", img:"/assets/webimage.png"}
-      ]
+      categories: props.data[0],
+      templates: props.data[1]
     };
+    console.log(props.data[0])
   }
 
   render() {
-    var categories = this.state.categories.map((category)=> {
-      return <Category name={category.name} key={category.id} img={category.img} />
+    var categories = this.state.categories.map((category, index)=> {
+      return <Category name={category.name} key={category.id} image={category.image} />
     });
     return(
       <div className="pageBox">

@@ -4,7 +4,7 @@ class Category extends BaseComponent {
     super(props);
     this._bind("categoryRow");
     this.state = {
-      categoryImg: this.props.img,
+      categoryImage: this.props.image,
       categoryName: this.props.name
     };
   }
@@ -13,7 +13,7 @@ class Category extends BaseComponent {
     return (
       <div>
         <div className ="container-item">
-          <img src={this.state.categoryImg}/>
+          <img src={this.state.categoryImage}/>
         </div>
         <div className ="container-item">
           <button className="categoryButton">{this.state.categoryName}</button>
