@@ -36,7 +36,7 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  Paperclip.options[:command_path] = 'C:\Program Files (x86)\ImageMagick-7.0.3-Q16'
+  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
 
   Paperclip.options[:swallow_stderr] = false
 

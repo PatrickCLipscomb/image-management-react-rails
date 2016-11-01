@@ -59,16 +59,12 @@ class TemplatesController < ApplicationController
     @template = Template.find(params[:id])
     @category = @template.category
     if @template.update(template_params)
-      if params[:template][:image].blank?
-        respond_to do |format|
-          format.js
-          format.html {redirect_to template_path(@template)}
-          format.json {render json: @template}
-        end
-        flash[:notice] = "Template successfully updated!"
-      else
-        render 'crop'
+      respond_to do |format|
+        format.js
+        format.html {redirect_to template_path(@template)}
+        format.json {render json: @template}
       end
+      flash[:notice] = "Template successfully updated!"
     else
       render :edit
     end
