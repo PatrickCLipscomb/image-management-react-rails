@@ -56,17 +56,21 @@ html, body {
   min-width: 175px;
   padding: 5px;
   color: #F1592A;
-
+  // moves them to center
+  justify-content: center;
+  display: flex;
 }
 
 .itemList {
   display: flex;
   flex-wrap:wrap;
-  flex-wrap:wrap;
+  justify-content: space-around;
 }
 
 .pageContent {
   display: flex;
+  justify-content: space-around;
+  // flex-wrap:wrap;
 
 }
 .categoryButton {
