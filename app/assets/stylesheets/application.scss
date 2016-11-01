@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:900');
 
 .img-thumb {
   width: 80px;
@@ -30,4 +31,54 @@
 
 .inline-glyph {
   display: inline;
+}
+
+
+// front-end
+
+html, body {
+  background-color: #F0CCC0;
+}
+.pageBox{
+  background-color: white;
+}
+.startingQ{
+  font-family: 'Titillium Web', sans-serif;
+  text-align: center;
+  font-weight: 900;
+  font-size: 60px;
+  color: #F1592A;
+}
+.container-item {
+  border: 2px solid black;
+  margin: 2px;
+  width: 32%;
+  min-width: 175px;
+  padding: 5px;
+  color: #F1592A;
+  // moves them to center
+  justify-content: center;
+  display: flex;
+}
+
+.itemList {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
+}
+
+.pageContent {
+  display: flex;
+  justify-content: space-around;
+  // flex-wrap:wrap;
+
+}
+.categoryButton {
+  border-radius: 25px;
+  color: white;
+  background-color: #F1592A;
+  font-weight: bolder;
+  font-size: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
