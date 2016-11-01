@@ -15,6 +15,16 @@ class TemplatesController < ApplicationController
     render :new
   end
 
+
+  # Have a seperate model for image that is cropped down by the user. Have this model created whenever the user goes throught the cropping action and allows them to download the image.
+
+  def crop
+    @template = Template.find(params[:id])
+    @template.update_attributes(crop_params)
+    @template.reprocess_image
+    redirect_to template_path(@template)
+  end
+
   def create
     @categories = Category.all
     @category = Category.find(params[:template][:category_id])
@@ -36,6 +46,7 @@ class TemplatesController < ApplicationController
     @template = Template.find(params[:id])
     @category = @template.category
     respond_to do |format|
+      format.html {render :edit}
       format.js
     end
   end
@@ -71,5 +82,9 @@ class TemplatesController < ApplicationController
 private
   def template_params
     params.require(:template).permit(:title, :description, :category_id, :image)
+  end
+
+  def crop_params
+    params.require(:template).permit(:crop_x, :crop_y, :crop_w, :crop_h)
   end
 end

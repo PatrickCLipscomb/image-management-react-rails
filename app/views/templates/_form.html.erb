@@ -4,6 +4,7 @@
 <div class="form-inline">
   <%= f.label :category_id%>
   <%= f.select(:category_id) do %>
+    <% @categories = Category.all %>
     <% @categories.each do |cat| %>
       <%= content_tag(:option, cat.name, value: cat.id) %>
     <% end %>

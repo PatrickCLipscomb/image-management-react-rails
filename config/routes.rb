@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
 
   resources :categories
-  resources :templates
+  resources :templates do
+    member do
+      patch 'crop'
+    end
+  end
   devise_for :users
     root :to => "home#index"
+
 
   get 'admin' => "categories#admin_index"
   get 'react' => "categories#react_index"
   get 'front' => "categories#react_frontend"
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
