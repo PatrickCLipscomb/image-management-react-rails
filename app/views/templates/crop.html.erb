@@ -1,5 +1,5 @@
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
       $('#cropbox').Jcrop({
       onChange: update_crop,
       onSelect: update_crop,
@@ -15,7 +15,7 @@ $(function() {
       marginLeft: '-' + Math.round(rx * coords.x) + 'px',
       marginTop: '-' + Math.round(ry * coords.y) + 'px'
       });
-      var ratio = <%= @template.image_geometry(:original).width %> / <%= @template.image_geometry(:large).width %>gt;
+      var ratio = <%= @template.image_geometry(:original).width %> / <%= @template.image_geometry(:large).width %>;
       $(“#crop_x”).val(Math.round(coords.x * ratio));
       $(“#crop_y”).val(Math.round(coords.y * ratio));
       $(“#crop_w”).val(Math.round(coords.w * ratio));

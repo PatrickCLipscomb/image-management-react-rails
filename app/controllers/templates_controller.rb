@@ -25,8 +25,7 @@ class TemplatesController < ApplicationController
   def crop
     @template = Template.find(params[:id])
     @template.update_attributes(crop_params)
-    @template.image.reprocess!
-    binding.pry
+    @template.reprocess_image
     redirect_to template_path(@template)
   end
 
@@ -68,7 +67,7 @@ class TemplatesController < ApplicationController
         end
         flash[:notice] = "Template successfully updated!"
       else
-        render :crop
+        render 'crop'
       end
     else
       render :edit

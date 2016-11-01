@@ -1,13 +1,46 @@
-Show page for individual template
+<% if 1 == 0 %>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+      $("#cropbox").Jcrop({
+        onChange: update_crop,
+        onSelect: update_crop,
+        setSelect: [0, 0, 1000, 1000]
+      });
+  });
+  function update_crop(coords) {
+    var rx = 100/coords.w;
+    var ry = 100/coords.h;
+      $("#preview").css({
+        width: Math.round(rx * <%= @template.image_geometry(:large).width %>) + 'px',
+        height: Math.round(ry * <%= @template.image_geometry(:large).height %>) + 'px',
+        marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+        marginTop: '-' + Math.round(ry * coords.y) + 'px'
+      });
+      var ratio =
+		<%= @template.image_geometry(:original).width %> /
+		<%= @template.image_geometry(:large).width %>;
+      $("#crop_x").val(Math.round(coords.x * ratio));
+      $("#crop_y").val(Math.round(coords.y * ratio));
+      $("#crop_w").val(Math.round(coords.w * ratio));
+      $("#crop_h").val(Math.round(coords.h * ratio));
+  }
+</script>
+<% end %>
 
 <h1><%= @template.title %></h1>
 <%= link_to "Download", @template.image.url(:original, false), class: "pull-right btn btn-large btn-primary" %>
 <h2><%= @template.description %></h2>
 <br>
 
+<div style="width:100px; height:100px; overflow:hidden">
+   <%= image_tag @template.image, :id => "preview" %>
+ </div>
+
 <% if current_user %>
   <%= link_to "Edit", edit_template_path(@template)%> ||
 <%end%>
+
+
 <%= link_to 'Back to table', admin_path %>
 
 <%= image_tag @template.image, :id => "cropbox" %>

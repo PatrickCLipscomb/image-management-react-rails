@@ -1,6 +1,6 @@
 class Template < ActiveRecord::Base
   belongs_to :category
-  has_attached_file :image, default_url: "/images/missing.png", :processors => [:cropper], :styles => {show_page: "400x400#"}
+  has_attached_file :image, default_url: "/images/missing.png", :processors => [:cropper], :styles => { :small => "100x100#", :large => "500x500>"}
 
   do_not_validate_attachment_file_type :image
 
