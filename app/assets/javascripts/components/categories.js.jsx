@@ -16,7 +16,6 @@ class Categories extends BaseComponent {
       currentCategory: 'none'
     };
   }
-
   toggleAd() {
     this.setState({landingPageShow: false, currentCategory: "Web Ad"})
   }

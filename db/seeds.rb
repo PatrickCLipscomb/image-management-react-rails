@@ -8,10 +8,14 @@
 
 User.create!(email: "admin@admin.com", username: "AlphaAdmin", password: "password")
 Category.all.each {|a| a.destroy }
-Category.create!(name: "Social Media", description: "To be used on social media platforms")
-Category.create!(name: "Advertising", description: "To be used to promote Alpha Media")
-Category.create!(name: "Website Graphics", description: "To be used for website graphics")
+
+Category.create!(name: "Social Media", description: "To be used on social media platforms", image: "/assets/Social_Image_Icon.svg")
+
+Category.create!(name: "Web Ad", description: "To be used to promote Alpha Media", image: "/assets/Web_Ad_Icon.svg")
+
+Category.create!(name: "Web Image", description: "To be used for website graphics", image: "/assets/Web_Image_Icon.svg")
+
 Template.all.each {|a| a.destroy }
-30.times do
+10.times do
   Template.create!(title: Faker::Hacker.adjective, description: Faker::Hacker.say_something_smart, category_id: Category.all.first.id + rand(3))
 end

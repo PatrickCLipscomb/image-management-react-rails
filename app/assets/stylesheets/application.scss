@@ -2,7 +2,7 @@
 @import "jquery.Jcrop";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web:900');
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black|Roboto+Condensed');
 
 .img-thumb {
   width: 80px;
@@ -15,12 +15,12 @@
 
 }
 
-.Website {
+.Image {
   background-color: #4DD0E1;
 
 }
 
-.Advertising {
+.Ad {
   background-color: #00BCD4;
 
 }
@@ -38,19 +38,37 @@
 
 // front-end
 
-html, body {
-  background-color: #F0CCC0;
+body {
+  background-image: url("/assets/Background.jpg");
 }
+
+
+.try{
+  justify-content: center;
+  display: flex;
+}
+
 .pageBox{
   background-color: white;
+  // mockup-width 945 pt
+  width: 1260px;
+  //  mockup-height 745pt
+  // height: 993.33px;
 }
+
 .startingQ{
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Archivo Black', sans-serif;
   text-align: center;
-  font-weight: 900;
+  // regular
+  font-style:normal;
+  //  mockup-tracking -50pt
+  font-kerning: -66px;
+  //  mockup-leading 80.25pt
+  line-height: 107px;
   font-size: 60px;
   color: #F1592A;
 }
+
 .container-item {
   border: 2px solid black;
   margin: 2px;
@@ -60,6 +78,7 @@ html, body {
   color: #F1592A;
   // moves them to center
   justify-content: center;
+
   display: flex;
 }
 
@@ -76,10 +95,11 @@ html, body {
 
 }
 .categoryButton {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
   border-radius: 25px;
   color: white;
   background-color: #F1592A;
-  font-weight: bolder;
   font-size: 15px;
   padding-right: 20px;
   padding-left: 20px;
