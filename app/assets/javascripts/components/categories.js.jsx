@@ -18,13 +18,13 @@ class Categories extends BaseComponent {
     return(
       <div className="pageBox">
 
-        // <div className="borderQ">#</div>
+
         <div className="question">
           <p className="startingQ">WHAT WOULD</p>
           <p className="startingQ">YOU LIKE TO</p>
           <p className="startingQ">CREATE?</p>
         </div>
-        // <div className="borderQ">#</div>
+
 
         <div className = "categories pageContent">
           <div className="itemList">
