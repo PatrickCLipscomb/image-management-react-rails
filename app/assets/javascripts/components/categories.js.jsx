@@ -30,36 +30,46 @@ class Categories extends BaseComponent {
 
   landingPage() {
     return(
-      <div className="pageBox">
-        <h2 className="startingQ">WHAT WOULD</h2>
-        <h2 className="startingQ">YOU LIKE TO</h2>
-        <h2 className="startingQ">CREATE?</h2>
-        <br></br>
-        <div className = "categories pageContent">
-          <div className="itemList">
-            <div>
-              <div className="container-item">
-                <img className="landingCategoryImage" src={this.state.categories[0].image}/>
-              </div>
-              <div className ="container-item">
-                <button onClick={this.toggleSocial} className="categoryButton">{this.state.categories[0].name}</button>
-              </div>
+      <div className="container-align">
+        <div className="container-main">
+          <div className="container-box">
+            <div className="white-box parent">
+              <div className="item"></div>
+              <div className="item startingQ"><h1>WHAT WOULD YOU LIKE TO CREATE?</h1></div>
+              <div className="item"></div>
             </div>
-            <div>
-              <div className="container-item">
-                <img className="landingCategoryImage" src={this.state.categories[1].image}/>
+
+            <div className="white-box parent2">
+              <div className="item2"></div>
+              <div className="item2">
+
+                <div className="parent3">
+                  <div className="item3">
+                    <img className="landingCategoryImage" src={this.state.categories[0].image}/>
+                  </div>
+
+                  <div className="item3">
+                    <img className="landingCategoryImage" src={this.state.categories[1].image}/>
+                  </div>
+
+                  <div className="item3">
+                    <img className="landingCategoryImage" src={this.state.categories[2].image}/>
+                  </div>
+                </div>
+
+                <div className=" parent3">
+                  <div className="item3">
+                    <button onClick={this.toggleSocial} className="categoryButton">{this.state.categories[0].name}</button>
+                  </div>
+                  <div className="item3">
+                    <button onClick={this.toggleAd} className="categoryButton">{this.state.categories[1].name}</button>
+                  </div>
+                  <div className="item3">
+                    <button onClick={this.toggleImage} className="categoryButton">{this.state.categories[2].name}</button>
+                  </div>
+                </div>
               </div>
-              <div className ="container-item">
-                <button onClick={this.toggleAd} className="categoryButton">{this.state.categories[1].name}</button>
-              </div>
-            </div>
-            <div>
-              <div className="container-item">
-                <img className="landingCategoryImage" src={this.state.categories[2].image}/>
-              </div>
-              <div className ="container-item">
-                <button onClick={this.toggleImage} className="categoryButton">{this.state.categories[2].name}</button>
-              </div>
+              <div className="item2"></div>
             </div>
           </div>
         </div>
