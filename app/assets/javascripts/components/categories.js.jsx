@@ -33,13 +33,13 @@ class Categories extends BaseComponent {
       <div className="container-align">
         <div className="container-main">
           <div className="container-box">
-            <div className="white-box parent">
+            <div className="parent">
               <div className="item"></div>
-              <div className="item startingQ"><h1>WHAT WOULD YOU LIKE TO CREATE?</h1></div>
+              <div className="item"><h1 className="startingQ">WHAT WOULD YOU LIKE TO CREATE?</h1></div>
               <div className="item"></div>
             </div>
 
-            <div className="white-box parent2">
+            <div className="parent2">
               <div className="item2"></div>
               <div className="item2">
 
@@ -91,24 +91,35 @@ class Categories extends BaseComponent {
       return <MinimalTemplate key={template.id} template={template} />
     })
     return (
-      <div className="pageBox">
-        <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.backToLanding}>BACK</span>
-        <h2 className="startingQ">{header} Templates</h2>
-        <br></br>
-        <div className = "categories pageContent">
-          <table className="table table-bordered">
-              <thead>
-                  <tr>
-                      <th> Title </th>
-                      <th> Description </th>
-                      <th> File Attachment </th>
-                      <th> Actions </th>
-                  </tr>
-              </thead>
-              <tbody>
-                {templates}
-              </tbody>
-          </table>
+      <div className="container-align">
+        <div className="container-main">
+          <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.backToLanding}>BACK</span>
+          <div className="container-box">
+            <div className="parent">
+              <div className="item"></div>
+              <div className="item"><h1 className="startingQ">{header} Templates</h1></div>
+              <div className="item"></div>
+            </div>
+            <div className="parent4">
+              <div className="item4"></div>
+              <div className="item4 categories">
+                <table className="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> Title </th>
+                            <th> Description </th>
+                            <th> File Attachment </th>
+                            <th> Actions </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {templates}
+                    </tbody>
+                </table>
+              </div>
+              <div className="item4"></div>
+            </div>
+          </div>
         </div>
       </div>
     )

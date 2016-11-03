@@ -53,8 +53,8 @@ body {
   font-kerning: -66px;
   //  mockup-leading 80.25pt
   // line-height: 107px;
-  line-height: 2;
-  font-size: 150px;
+  line-height: 0.80;
+  font-size: 80px;
   color: #F1592A;
 }
 
@@ -136,4 +136,27 @@ body {
   font-weight: 600;
   text-align: center;
   width: 32%;
+}
+
+.parent4 {
+  display: flex;
+}
+.item4{
+  background: white;
+  // color: #F1592A;
+  color: black;
+
+  margin: 5px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: 600;
+  width: 20%;
+}
+.item4:nth-child(2) {
+  flex-grow: 2;
+  width: 60%;
+}
+
+.glyphicon, .glyphicon-arrow-left {
+  cursor: pointer;
 }
