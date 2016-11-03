@@ -86,7 +86,7 @@ class Templates extends BaseComponent {
                     <thead>
                         <tr>
                             <th> Category <br />
-                              <select value={this.state.catCycle} onChange={this.handleCatCycle}>
+                              <select onChange={this.handleCatCycle}>
                                 <option value="All">All Categories</option>
                                 <option value={categoryArray[0].id}>{categoryArray[0].name}</option>
                                 <option value={categoryArray[1].id}>{categoryArray[1].name}</option>

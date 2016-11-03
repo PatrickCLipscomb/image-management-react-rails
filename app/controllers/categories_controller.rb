@@ -7,7 +7,10 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
   def react_index
-    @categories = Category.all
+    @categories = []
+    ['Social Media', 'Web Ad', 'Web Image'].each do |categoryName|
+      @categories.push(Category.where(name: categoryName))
+    end
     @templates = Template.all.order('category_id asc').order('title asc')
     @template = Template.new
   end

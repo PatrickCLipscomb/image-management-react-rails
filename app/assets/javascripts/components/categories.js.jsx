@@ -5,27 +5,23 @@ class Categories extends BaseComponent {
     super();
     this._bind('landingPage', 'templatePage', 'toggleSocial', 'toggleAd', 'toggleImage', 'backToLanding');
     this.state = {
-      categories: [
-      {id:1, name:"Social Media", img:"/assets/socialmedia.png"},
-      {id:2, name:"Web Ad", img:"/assets/webad.png"},
-      {id:3, name:"Web Image", img:"/assets/webimage.png"}
-      ],
       templates: props.data[0],
-      categoryIDs: props.data[1],
+      categories: props.data[1],
       landingPageShow: true,
       currentCategory: 'none'
     };
+    console.log(this.state.categories)
   }
   toggleAd() {
-    this.setState({landingPageShow: false, currentCategory: "Web Ad"})
+    this.setState({landingPageShow: false, currentCategory: this.state.categories[1]})
   }
 
   toggleImage() {
-    this.setState({landingPageShow: false, currentCategory: "Web Image"})
+    this.setState({landingPageShow: false, currentCategory: this.state.categories[2]})
   }
 
   toggleSocial() {
-    this.setState({landingPageShow: false, currentCategory: "Social Media"})
+    this.setState({landingPageShow: false, currentCategory: this.state.categories[0]})
   }
 
   backToLanding() {
@@ -42,24 +38,24 @@ class Categories extends BaseComponent {
         <div className = "categories pageContent">
           <div className="itemList">
             <div>
-              <div className ="container-item">
-                <img src={this.state.categories[0].img}/>
+              <div className="container-item">
+                <img className="landingCategoryImage" src={this.state.categories[0].image}/>
               </div>
               <div className ="container-item">
                 <button onClick={this.toggleSocial} className="categoryButton">{this.state.categories[0].name}</button>
               </div>
             </div>
             <div>
-              <div className ="container-item">
-                <img src={this.state.categories[1].img}/>
+              <div className="container-item">
+                <img className="landingCategoryImage" src={this.state.categories[1].image}/>
               </div>
               <div className ="container-item">
                 <button onClick={this.toggleAd} className="categoryButton">{this.state.categories[1].name}</button>
               </div>
             </div>
             <div>
-              <div className ="container-item">
-                <img src={this.state.categories[2].img}/>
+              <div className="container-item">
+                <img className="landingCategoryImage" src={this.state.categories[2].image}/>
               </div>
               <div className ="container-item">
                 <button onClick={this.toggleImage} className="categoryButton">{this.state.categories[2].name}</button>
@@ -72,8 +68,16 @@ class Categories extends BaseComponent {
   }
 
   templatePage() {
-    var header = this.state.currentCategory
-    var templates = this.state.templates.map((template) => {
+    var currentCategory = this.state.currentCategory
+    var header = currentCategory.name
+    var selectedTemplates = []
+    console.log(currentCategory.id)
+    this.state.templates.forEach(function(template) {
+      if (template.category_id === currentCategory.id) {
+        selectedTemplates.push(template)
+      }
+    })
+    var templates = selectedTemplates.map((template) => {
       return <MinimalTemplate key={template.id} template={template} />
     })
     return (
@@ -101,9 +105,6 @@ class Categories extends BaseComponent {
   }
 
   render() {
-    var categories = this.state.categories.map((category)=> {
-      return <Category name={category.name} key={category.id} img={category.img} />
-    });
     if (this.state.landingPageShow) {
       return this.landingPage()
     } else {

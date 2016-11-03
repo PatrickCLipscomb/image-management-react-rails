@@ -9,6 +9,8 @@
 User.create!(email: "admin@admin.com", username: "AlphaAdmin", password: "password")
 Category.all.each {|a| a.destroy }
 
+
+# The order categories are created matters, don't change this
 Category.create!(name: "Social Media", description: "To be used on social media platforms", image: "/assets/Social_Image_Icon.svg")
 
 Category.create!(name: "Web Ad", description: "To be used to promote Alpha Media", image: "/assets/Web_Ad_Icon.svg")
