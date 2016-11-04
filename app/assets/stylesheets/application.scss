@@ -111,6 +111,14 @@ body {
 .react-container{
   align-self: center;
   background: white;
+}
+
+.file-send-div {
+  text-align: center;
+  margin-top: 30%;
+}
+// new CSS
+.container-align {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -211,6 +219,33 @@ body {
 .item4:nth-child(2) {
   flex-grow: 2;
   width: 60%;
+}
+
+// link to download 
+.categoryButtonLink {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  border-radius: 25px;
+  color: white;
+  background-color: #F1592A;
+  font-size: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.categoryButtonLink:hover {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  border-radius: 25px;
+  color: white;
+  background-color: #F1592A;
+  font-size: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 // back link

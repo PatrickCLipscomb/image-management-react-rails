@@ -15,6 +15,13 @@ class TemplatesController < ApplicationController
     render :new
   end
 
+  def file_send
+    @template = Template.find(params[:id])
+    # send_file Rails.root.join("public", @template.image_file_name)
+    # '../../public/images/thumb/missing.png'
+    # system/templates/images/000/000/0' + @template.id.to_s + '/original/' + @template.image_file_name.to_s
+  end
+
 
   # Have a seperate model for image that is cropped down by the user. Have this model created whenever the user goes throught the cropping action and allows them to download the image.
 

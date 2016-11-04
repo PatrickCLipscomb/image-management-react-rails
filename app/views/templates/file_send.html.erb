@@ -1,0 +1,22 @@
+
+<div className="container-align">
+  <div className="container-main">
+    <div className="container-box">
+      <div className="parent">
+        <div className="item"></div>
+        <div className="item"></div>
+        <div className="item"></div>
+      </div>
+      <div className="parent4">
+        <div className="item4"></div>
+        <div className="item4 categories">
+          <div class="btn-group">
+            <%= link_to "Download " + @template.title.capitalize + " Template", @template.image.url(:original, false), :class => "categoryButtonLink" %>
+            <%= link_to "Back to Templates Page", front_path, :class => "categoryButtonLink" %>
+          </div>
+        </div>
+        <div className="item4"></div>
+      </div>
+    </div>
+  </div>
+</div>
