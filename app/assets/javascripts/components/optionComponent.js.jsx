@@ -3,11 +3,18 @@
 class OptionComponent extends BaseComponent {
   constructor(props) {
     super(props)
-    this._bind('goBack')
+    this._bind('goBack', 'handleDownload')
   }
 
   goBack() {
     this.props.onBacktoCategory()
+  }
+
+  handleDownload() {
+    var templateTitle = this.props.template.title
+    if (confirm('Download ' + templateTitle + ' Template?')) {
+      console.log('Download goes here')
+    }
   }
 
   render() {
@@ -25,7 +32,7 @@ class OptionComponent extends BaseComponent {
           <div className="item4 categories">
             <ul className="list-group"></ul>
               <div className="btn-group">
-                <button className="categoryButton">I have Photoshop</button>
+                <button className="categoryButton" onClick={this.handleDownload}>I have Photoshop</button>
                 <button className="categoryButton">I don't have Photoshop</button>
               </div>
           </div>
