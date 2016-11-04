@@ -2,7 +2,7 @@
 
 <%=form_for @template, :html => {:id => @template.id.to_s + "-form"}, remote: true do |f| %>
 <div class="form-inline">
-  <%= f.label :category_id%>
+  <%= f.label :category_id, :class => "white-font"%>
   <%= f.select(:category_id) do %>
     <% @categories = Category.all %>
     <% @categories.each do |cat| %>
@@ -16,7 +16,7 @@
       <%= f.text_area :description, :class => "form-control", :cols => '30', :rows => '2', :placeholder => "Description", :id => "description-input" %>
     </div>
   <div class="form-group">
-    <%= f.label :image, "PSD File" %>
+    <%= f.label :image, "PSD File", :class => "white-font" %>
     <%= f.file_field :image, class: 'form-control', :id => "file-input"%>
   </div>
   <%= f.submit :class => "btn btn-info btn-sm" %>

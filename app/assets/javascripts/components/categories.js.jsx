@@ -71,7 +71,6 @@ class Categories extends BaseComponent {
     var currentCategory = this.state.currentCategory
     var header = currentCategory.name
     var selectedTemplates = []
-    console.log(currentCategory.id)
     this.state.templates.forEach(function(template) {
       if (template.category_id === currentCategory.id) {
         selectedTemplates.push(template)

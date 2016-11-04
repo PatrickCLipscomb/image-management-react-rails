@@ -108,7 +108,7 @@ class Template extends BaseComponent {
                 </td>
                 <td>{this.props.template.image_file_name}</td>
                 <td>
-                  <div class="btn-group inline">
+                  <div className="btn-group inline">
                     <a className="btn btn-default glyphicon glyphicon-ok inline-glyph" onClick={this.handleEdit}></a>
                     <a className="btn btn-danger glyphicon glyphicon-remove inline-glyph" onClick={this.handleToggle}></a>
                   </div>

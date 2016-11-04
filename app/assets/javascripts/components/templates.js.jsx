@@ -85,7 +85,7 @@ class Templates extends BaseComponent {
                 <table className="table table-bordered">
                     <thead>
                         <tr>
-                            <th> Category <br />
+                            <th > <span className="white-font">Category</span> <br />
                               <select onChange={this.handleCatCycle}>
                                 <option value="All">All Categories</option>
                                 <option value={categoryArray[0].id}>{categoryArray[0].name}</option>
@@ -93,10 +93,10 @@ class Templates extends BaseComponent {
                                 <option value={categoryArray[2].id}>{categoryArray[2].name}</option>
                               </select>
                             </th>
-                            <th> Title </th>
-                            <th> Description </th>
-                            <th> File Attachment </th>
-                            <th> Actions </th>
+                            <th className="white-font"> Title </th>
+                            <th className="white-font"> Description </th>
+                            <th className="white-font"> File Attachment </th>
+                            <th className="white-font"> Actions </th>
                         </tr>
                     </thead>
                     <tbody>
