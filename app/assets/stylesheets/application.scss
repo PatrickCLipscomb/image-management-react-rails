@@ -117,15 +117,10 @@ body {
   text-align: center;
   margin-top: 30%;
 }
-// new CSS
-.container-align {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .outside-container-box {
   display:flex;
+	background: white;
   justify-content: center;
   // mockup-width 945pt
   width: 800px;
@@ -246,6 +241,12 @@ body {
   padding-left: 20px;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+.parent5{
+
+}
+.btn-group{
+	padding:5px;
 }
 
 // back link

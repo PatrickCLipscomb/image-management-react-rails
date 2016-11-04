@@ -40,7 +40,7 @@ class Categories extends BaseComponent {
   optionPage() {
       var template = <OptionComponent template={this.state.templateDownLoadOption} onBacktoCategory={this.backToCategory}/>
       return (
-        <div className="container-align">
+        <div className="react-container">
             {template}
         </div>
     )

@@ -29,7 +29,7 @@ class OptionComponent extends BaseComponent {
   render() {
     var fileDownloadURL = "/templates/" + this.props.template.id + "/file_send"
     return(
-      <div className="container-main">
+      <div className="outside-container-box">
       <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.goBack}>BACK</span>
       <div className="container-box">
         <div className="parent">
