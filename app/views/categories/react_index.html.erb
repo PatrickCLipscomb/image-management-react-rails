@@ -1,8 +1,14 @@
+<div class="admin-container">
+  <div class="parent">
 
-<div class="container">
-  <h3 class="form-center white-font">Add a new Template</h3>
-  <%= render "templates/form", {data: @template} %>
-</div>
-<div class="container">
-  <%= react_component 'Templates', { data: [@categories, @templates] } %>
+    <div class="item5">
+      <h3 class="form-center white-font">Add a new Template</h3>
+      <%= render "templates/form", {data: @template} %>
+    </div>
+  </div>
+  <div class="parent2">
+    <div class="item5">
+      <%= react_component 'Templates', { data: [@categories, @templates] } %>
+    </div>
+  </div>
 </div>
