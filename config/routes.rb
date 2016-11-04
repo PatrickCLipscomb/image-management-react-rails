@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :templates do
     member do
       patch 'crop'
+      get 'file_send'
     end
   end
   devise_for :users

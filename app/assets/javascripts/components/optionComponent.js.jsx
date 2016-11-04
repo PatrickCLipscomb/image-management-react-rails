@@ -10,14 +10,24 @@ class OptionComponent extends BaseComponent {
     this.props.onBacktoCategory()
   }
 
-  handleDownload() {
+  handleDownload(event) {
+    event.preventDefault()
     var templateTitle = this.props.template.title
+    var id = this.props.template.id
     if (confirm('Download ' + templateTitle + ' Template?')) {
-      console.log('Download goes here')
+      // window.location.href = "/public/system/templates/images/000/000/017/original/FlexboxCompatability.PNG"
+      $.ajax({
+        method: 'GET',
+        url: '/templates/' + id + '/file_send',
+        success: () => {
+          this.goBack()
+        }
+      })
     }
   }
 
   render() {
+    var fileDownloadURL = "/templates/" + this.props.template.id + "/file_send"
     return(
       <div className="container-main">
       <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.goBack}>BACK</span>
@@ -32,7 +42,7 @@ class OptionComponent extends BaseComponent {
           <div className="item4 categories">
             <ul className="list-group"></ul>
               <div className="btn-group">
-                <button className="categoryButton" onClick={this.handleDownload}>I have Photoshop</button>
+                <a className="categoryButtonLink" href={fileDownloadURL}>I have Photoshop</a>
                 <button className="categoryButton">I don't have Photoshop</button>
               </div>
           </div>
