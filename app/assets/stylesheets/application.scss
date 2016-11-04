@@ -42,25 +42,9 @@
   display: inline;
 }
 
-
 // front-end
-
 body {
   background-image: url("/assets/Background.jpg");
-}
-
-
-.try{
-  justify-content: center;
-  display: flex;
-}
-
-.pageBox{
-  background-color: white;
-  // mockup-width 945 pt
-  width: 1260px;
-  //  mockup-height 745pt
-  // height: 993.33px;
 }
 
 .startingQ{
@@ -71,36 +55,12 @@ body {
   //  mockup-tracking -50pt
   font-kerning: -66px;
   //  mockup-leading 80.25pt
-  line-height: 107px;
-  font-size: 60px;
+  // line-height: 107px;
+  line-height: 0.80;
+  font-size: 80px;
   color: #F1592A;
 }
 
-.container-item {
-  border: 2px solid black;
-  margin: 2px;
-  width: 32%;
-  min-width: 175px;
-  padding: 5px;
-  color: #F1592A;
-  // moves them to center
-  justify-content: center;
-
-  display: flex;
-}
-
-.itemList {
-  display: flex;
-  flex-wrap:wrap;
-  justify-content: space-around;
-}
-
-.pageContent {
-  display: flex;
-  justify-content: space-around;
-  // flex-wrap:wrap;
-
-}
 .categoryButton {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
@@ -110,4 +70,96 @@ body {
   font-size: 15px;
   padding-right: 20px;
   padding-left: 20px;
+}
+
+
+// new CSS
+.container-align {
+  display:flex;
+  justify-content: center;
+}
+
+.container-main {
+  display:flex;
+  justify-content: center;
+  background: white;
+  // mockup-width 945pt
+  width: 1260px;
+  //  mockup-height 745pt
+  // height: 993.33px;
+
+}
+
+.parent {
+  display: flex;
+}
+.item{
+  background: white;
+  color: #F1592A;
+  margin: 5px;
+  text-align: center;
+  /*line-height: 50px;*/
+  font-weight: 600;
+  width: 20%;
+}
+.item:nth-child(2) {
+  flex-grow: 2;
+  width: 60%;
+}
+
+.parent2 {
+  display: flex;
+}
+.item2{
+  background: white;
+  color: #F1592A;
+
+  margin: 5px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: 600;
+  width: 20%;
+}
+.item2:nth-child(2) {
+  flex-grow: 2;
+  width: 60%;
+}
+
+.parent3 {
+  display: flex;
+  justify-content: space-between;
+  /*align-content: center;*/
+  /*text-align: center;*/
+  // flex-wrap: wrap;
+}
+.item3 {
+  background: white;
+  margin: 5px;
+  line-height: 50px;
+  font-weight: 600;
+  text-align: center;
+  width: 32%;
+}
+
+.parent4 {
+  display: flex;
+}
+.item4{
+  background: white;
+  // color: #F1592A;
+  color: black;
+
+  margin: 5px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: 600;
+  width: 20%;
+}
+.item4:nth-child(2) {
+  flex-grow: 2;
+  width: 60%;
+}
+
+.glyphicon, .glyphicon-arrow-left {
+  cursor: pointer;
 }

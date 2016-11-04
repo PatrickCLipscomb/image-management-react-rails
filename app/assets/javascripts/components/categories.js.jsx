@@ -30,36 +30,46 @@ class Categories extends BaseComponent {
 
   landingPage() {
     return(
-      <div className="pageBox">
-        <h2 className="startingQ">WHAT WOULD</h2>
-        <h2 className="startingQ">YOU LIKE TO</h2>
-        <h2 className="startingQ">CREATE?</h2>
-        <br></br>
-        <div className = "categories pageContent">
-          <div className="itemList">
-            <div>
-              <div className="container-item">
-                <img className="landingCategoryImage" src={this.state.categories[0].image}/>
-              </div>
-              <div className ="container-item">
-                <button onClick={this.toggleSocial} className="categoryButton">{this.state.categories[0].name}</button>
-              </div>
+      <div className="container-align">
+        <div className="container-main">
+          <div className="container-box">
+            <div className="parent">
+              <div className="item"></div>
+              <div className="item"><h1 className="startingQ">WHAT WOULD YOU LIKE TO CREATE?</h1></div>
+              <div className="item"></div>
             </div>
-            <div>
-              <div className="container-item">
-                <img className="landingCategoryImage" src={this.state.categories[1].image}/>
+
+            <div className="parent2">
+              <div className="item2"></div>
+              <div className="item2">
+
+                <div className="parent3">
+                  <div className="item3">
+                    <img className="landingCategoryImage" src={this.state.categories[0].image}/>
+                  </div>
+
+                  <div className="item3">
+                    <img className="landingCategoryImage" src={this.state.categories[1].image}/>
+                  </div>
+
+                  <div className="item3">
+                    <img className="landingCategoryImage" src={this.state.categories[2].image}/>
+                  </div>
+                </div>
+
+                <div className=" parent3">
+                  <div className="item3">
+                    <button onClick={this.toggleSocial} className="categoryButton">{this.state.categories[0].name}</button>
+                  </div>
+                  <div className="item3">
+                    <button onClick={this.toggleAd} className="categoryButton">{this.state.categories[1].name}</button>
+                  </div>
+                  <div className="item3">
+                    <button onClick={this.toggleImage} className="categoryButton">{this.state.categories[2].name}</button>
+                  </div>
+                </div>
               </div>
-              <div className ="container-item">
-                <button onClick={this.toggleAd} className="categoryButton">{this.state.categories[1].name}</button>
-              </div>
-            </div>
-            <div>
-              <div className="container-item">
-                <img className="landingCategoryImage" src={this.state.categories[2].image}/>
-              </div>
-              <div className ="container-item">
-                <button onClick={this.toggleImage} className="categoryButton">{this.state.categories[2].name}</button>
-              </div>
+              <div className="item2"></div>
             </div>
           </div>
         </div>
@@ -80,24 +90,35 @@ class Categories extends BaseComponent {
       return <MinimalTemplate key={template.id} template={template} />
     })
     return (
-      <div className="pageBox">
-        <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.backToLanding}>BACK</span>
-        <h2 className="startingQ">{header} Templates</h2>
-        <br></br>
-        <div className = "categories pageContent">
-          <table className="table table-bordered">
-              <thead>
-                  <tr>
-                      <th> Title </th>
-                      <th> Description </th>
-                      <th> File Attachment </th>
-                      <th> Actions </th>
-                  </tr>
-              </thead>
-              <tbody>
-                {templates}
-              </tbody>
-          </table>
+      <div className="container-align">
+        <div className="container-main">
+          <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.backToLanding}>BACK</span>
+          <div className="container-box">
+            <div className="parent">
+              <div className="item"></div>
+              <div className="item"><h1 className="startingQ">{header} Templates</h1></div>
+              <div className="item"></div>
+            </div>
+            <div className="parent4">
+              <div className="item4"></div>
+              <div className="item4 categories">
+                <table className="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> Title </th>
+                            <th> Description </th>
+                            <th> File Attachment </th>
+                            <th> Actions </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {templates}
+                    </tbody>
+                </table>
+              </div>
+              <div className="item4"></div>
+            </div>
+          </div>
         </div>
       </div>
     )
