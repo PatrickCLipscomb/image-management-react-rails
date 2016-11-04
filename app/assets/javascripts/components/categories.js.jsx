@@ -3,12 +3,13 @@
 class Categories extends BaseComponent {
   constructor(props) {
     super();
-    this._bind('landingPage', 'templatePage', 'toggleSocial', 'toggleAd', 'toggleImage', 'backToLanding');
+    this._bind('landingPage', 'templatePage', 'toggleSocial', 'toggleAd', 'toggleImage', 'backToLanding', 'downloadClick', 'optionPage', 'backToCategory');
     this.state = {
       templates: props.data[0],
       categories: props.data[1],
       landingPageShow: true,
-      currentCategory: 'none'
+      currentCategory: 'none',
+      templateDownLoadOption: null
     };
     console.log(this.state.categories)
   }
@@ -26,6 +27,23 @@ class Categories extends BaseComponent {
 
   backToLanding() {
     this.setState({landingPageShow: true})
+  }
+
+  backToCategory() {
+    this.setState({templateDownLoadOption: null})
+  }
+
+  downloadClick(template) {
+    this.setState({templateDownLoadOption: template})
+  }
+
+  optionPage() {
+      var template = <OptionComponent template={this.state.templateDownLoadOption} onBacktoCategory={this.backToCategory}/>
+      return (
+        <div className="container-align">
+            {template}
+        </div>
+    )
   }
 
   landingPage() {
@@ -87,7 +105,7 @@ class Categories extends BaseComponent {
       }
     })
     var templates = selectedTemplates.map((template) => {
-      return <MinimalTemplate key={template.id} template={template} />
+      return <MinimalTemplate key={template.id} template={template} onDownloadClick={this.downloadClick} />
     })
     return (
       <div className="container-align">
@@ -102,19 +120,8 @@ class Categories extends BaseComponent {
             <div className="parent4">
               <div className="item4"></div>
               <div className="item4 categories">
-                <table className="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th> Title </th>
-                            <th> Description </th>
-                            <th> File Attachment </th>
-                            <th> Actions </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      {templates}
-                    </tbody>
-                </table>
+                <ul className="list-group"></ul>
+                {templates}
               </div>
               <div className="item4"></div>
             </div>
@@ -125,7 +132,9 @@ class Categories extends BaseComponent {
   }
 
   render() {
-    if (this.state.landingPageShow) {
+    if (this.state.templateDownLoadOption) {
+      return this.optionPage()
+    } else if (this.state.landingPageShow) {
       return this.landingPage()
     } else {
       return this.templatePage()

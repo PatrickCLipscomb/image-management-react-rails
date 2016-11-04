@@ -166,3 +166,15 @@ body {
 .glyphicon, .glyphicon-arrow-left {
   cursor: pointer;
 }
+
+.list-group-item:hover {
+  background-color: rgba(241, 89, 42, .3);
+  cursor: pointer
+}
+.list-group-item {
+  border: 1px solid rgba(241, 89, 42, .6)
+}
+
+.minimal-template-description {
+  line-height: 20px;
+}
