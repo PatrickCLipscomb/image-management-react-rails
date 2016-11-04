@@ -1,9 +1,58 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
 @import "jquery.Jcrop";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Roboto+Condensed');
 
+// admin page
 .img-thumb {
   width: 80px;
   height: 80px;
@@ -17,20 +66,17 @@
 .white-font {
   color: white;
 }
-
+// categories
 .Social {
   background-color: #B2EBF2;
-
 }
 
 .Image {
   background-color: #4DD0E1;
-
 }
 
 .Ad {
   background-color: #00BCD4;
-
 }
 
 .form-center {
@@ -43,53 +89,41 @@
 }
 
 // front-end
+html, body {
+  height: 100%;
+}
+
 body {
   background-image: url("/assets/Background.jpg");
 }
-
-.startingQ{
-  font-family: 'Archivo Black', sans-serif;
-  text-align: center;
-  // regular
-  font-style:normal;
-  //  mockup-tracking -50pt
-  font-kerning: -66px;
-  //  mockup-leading 80.25pt
-  // line-height: 107px;
-  line-height: 0.80;
-  font-size: 60px;
-  color: #F1592A;
+.container-flex{
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
-
-.categoryButton {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: bold;
-  border-radius: 25px;
-  color: white;
-  background-color: #F1592A;
-  font-size: 15px;
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
-
-
-// new CSS
-.container-align {
+.react-container{
+  align-self: center;
+  background: white;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.container-main {
+.outside-container-box {
   display:flex;
   justify-content: center;
-  background: white;
   // mockup-width 945pt
   width: 800px;
   //  mockup-height 745pt
   padding-top: 40px;
   padding-bottom: 60px;
-
 }
 
 .parent {
@@ -108,6 +142,19 @@ body {
   flex-grow: 2;
   width: 70%;
 }
+.startingQ{
+  font-family: 'Archivo Black', sans-serif;
+  text-align: center;
+  // regular
+  font-style:normal;
+  //  mockup-tracking -50pt
+  font-kerning: -66px;
+  //  mockup-leading 80.25pt
+  // line-height: 107px;
+  line-height: 0.80;
+  font-size: 60px;
+  color: #F1592A;
+}
 
 .parent2 {
   display: flex;
@@ -115,7 +162,6 @@ body {
 .item2{
   background: white;
   color: #F1592A;
-
   margin: 5px;
   text-align: center;
   line-height: 50px;
@@ -129,10 +175,6 @@ body {
 
 .parent3 {
   display: flex;
-  justify-content: space-between;
-  /*align-content: center;*/
-  /*text-align: center;*/
-  // flex-wrap: wrap;
 }
 .item3 {
   background: white;
@@ -142,7 +184,16 @@ body {
   text-align: center;
   width: 38%;
 }
-
+.categoryButton {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  border-radius: 25px;
+  color: white;
+  background-color: #F1592A;
+  font-size: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
 
 .parent4 {
   display: flex;
@@ -151,7 +202,6 @@ body {
   background: white;
   // color: #F1592A;
   color: black;
-
   margin: 5px;
   text-align: center;
   line-height: 50px;
@@ -163,6 +213,7 @@ body {
   width: 60%;
 }
 
+// back link
 .glyphicon, .glyphicon-arrow-left {
   cursor: pointer;
 }
