@@ -33,6 +33,7 @@ class OptionComponent extends BaseComponent {
       <div className="outside-container-box">
         <div className="container-box">
           <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.goBack}>BACK</span>
+          <br></br>
           <div className="parent">
             <div className="item"></div>
             <div className="item"><h1 className="startingQ">{this.props.template.title} Template</h1></div>

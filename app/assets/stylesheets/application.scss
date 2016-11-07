@@ -115,6 +115,7 @@ body {
 .react-container{
   align-self: center;
   background: white;
+	min-height: 468px;
 }
 
 .file-send-div {
@@ -126,11 +127,14 @@ body {
   display:flex;
 	background: white;
   justify-content: center;
-  // mockup-width 945pt
   width: 800px;
-  //  mockup-height 745pt
   padding-top: 40px;
   padding-bottom: 60px;
+	min-height: 468px;
+	align-items: center;
+}
+.container-box{
+
 }
 
 .parent {
@@ -250,9 +254,18 @@ body {
   cursor: pointer
 }
 .list-group-item {
-  border: 1px solid rgba(241, 89, 42, .6)
+  border: 1px solid rgba(241, 89, 42, .6);
 }
 
 .minimal-template-description {
   line-height: 20px;
+}
+.list-container{
+	// overflow:scroll;
+	min-height: 468px;
+}
+
+.overflow{
+	overflow-y: scroll;
+	max-height: 468px;
 }

@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 class MinimalTemplate extends BaseComponent {
   constructor(props) {
@@ -12,14 +12,12 @@ class MinimalTemplate extends BaseComponent {
 
   render() {
     return(
-      <div>
+      <div className="">
         <li className="list-group-item"  onClick={this.handleDownload}>
           <h4>{this.props.template.title}</h4>
           <p className="minimal-template-description">{this.props.template.description}</p>
         </li>
-        <hr />
       </div>
-
     )
   }
 }

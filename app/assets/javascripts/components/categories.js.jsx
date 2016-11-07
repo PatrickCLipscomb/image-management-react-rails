@@ -107,8 +107,6 @@ class Categories extends BaseComponent {
     })
     return (
       <div className="outside-container-box">
-
-
         <div className="container-box">
           <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.backToLanding}>BACK</span>
           <div className="parent">
@@ -116,9 +114,9 @@ class Categories extends BaseComponent {
             <div className="item"><h1 className="startingQ">{header} Templates</h1></div>
             <div className="item"></div>
           </div>
-          <div className="parent4">
+          <div className="parent4 ">
             <div className="item4"></div>
-            <div className="item4 categories">
+            <div className="item4 categories overflow">
               <ul className="list-group"></ul>
               {templates}
             </div>
