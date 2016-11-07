@@ -18,4 +18,9 @@ class Template < ActiveRecord::Base
   def reprocess_image
     image.reprocess!
   end
+
+  def title=(title)
+    write_attribute(:title, title.titleize)
+  end
+
 end
