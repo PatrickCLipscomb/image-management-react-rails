@@ -29,27 +29,27 @@ class OptionComponent extends BaseComponent {
   render() {
     var fileDownloadURL = "/templates/" + this.props.template.id + "/file_send"
     return(
+
       <div className="outside-container-box">
-      <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.goBack}>BACK</span>
-      <div className="container-box">
-        <div className="parent">
-          <div className="item"></div>
-          <div className="item"><h1 className="startingQ">{this.props.template.title} Template</h1></div>
-          <div className="item"></div>
-        </div>
-        <div className="parent4">
-          <div className="item4"></div>
-          <div className="item4 categories">
-            <ul className="list-group"></ul>
-              <div className="btn-group">
-                <a className="categoryButtonLink" href={fileDownloadURL}>I have Photoshop</a>
-                <a className="categoryLink">I don't have Photoshop</a>
-              </div>
+        <div className="container-box">
+          <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.goBack}>BACK</span>
+          <div className="parent">
+            <div className="item"></div>
+            <div className="item"><h1 className="startingQ">{this.props.template.title} Template</h1></div>
+            <div className="item"></div>
           </div>
-          <div className="item4"></div>
+          <div className="parent4">
+            <div className="item4"></div>
+            <div className="item4 categories">
+              <div className="btn-group">
+                <a className="categoryLink" href={fileDownloadURL}>I have Photoshop</a>
+                <a className="categoryLink marginLink">I don't have Photoshop</a>
+              </div>
+            </div>
+            <div className="item4"></div>
+          </div>
         </div>
       </div>
-    </div>
     )
   }
 }

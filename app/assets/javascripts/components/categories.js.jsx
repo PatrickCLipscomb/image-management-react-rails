@@ -107,8 +107,10 @@ class Categories extends BaseComponent {
     })
     return (
       <div className="outside-container-box">
-        <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.backToLanding}>BACK</span>
+
+
         <div className="container-box">
+          <span className="glyphicon glyphicon-arrow-left pull-left" onClick={this.backToLanding}>BACK</span>
           <div className="parent">
             <div className="item"></div>
             <div className="item"><h1 className="startingQ">{header} Templates</h1></div>
