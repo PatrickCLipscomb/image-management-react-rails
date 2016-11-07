@@ -43,7 +43,7 @@ class OptionComponent extends BaseComponent {
             <ul className="list-group"></ul>
               <div className="btn-group">
                 <a className="categoryButtonLink" href={fileDownloadURL}>I have Photoshop</a>
-                <button className="categoryButton">I don't have Photoshop</button>
+                <a className="categoryLink">I don't have Photoshop</a>
               </div>
           </div>
           <div className="item4"></div>

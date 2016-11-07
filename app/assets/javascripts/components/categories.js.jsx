@@ -76,13 +76,13 @@ class Categories extends BaseComponent {
 
               <div className=" parent3">
                 <div className="item3">
-                  <button onClick={this.toggleSocial} className="categoryButton">{this.state.categories[0].name}</button>
+                  <a onClick={this.toggleSocial} className="categoryLink">{this.state.categories[0].name}</a>
                 </div>
                 <div className="item3">
-                  <button onClick={this.toggleAd} className="categoryButton">{this.state.categories[1].name}</button>
+                  <a onClick={this.toggleAd} className="categoryLink">{this.state.categories[1].name}</a>
                 </div>
                 <div className="item3">
-                  <button onClick={this.toggleImage} className="categoryButton">{this.state.categories[2].name}</button>
+                  <a onClick={this.toggleImage} className="categoryLink">{this.state.categories[2].name}</a>
                 </div>
               </div>
             </div>
