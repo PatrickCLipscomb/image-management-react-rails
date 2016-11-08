@@ -56,7 +56,6 @@ table {
 .img-thumb {
   width: 80px;
   height: 80px;
-  // max-height: 50px;
 }
 
 .landingCategoryImage {
@@ -251,16 +250,6 @@ body {
 	text-align: center;
 	margin-top: 30%;
 }
-// .admin-container{
-// 	display: flex;
-// 	align-content: center;
-// 	justify-content: center;
-// }
-// .item5{
-// margin-left: 20px;
-// margin-right: 20px;
-//
-// }
 
 .btn-group{
 	padding:5px;
@@ -288,6 +277,6 @@ body {
 }
 
 .overflow{
-	overflow-y: scroll;
+	overflow-y: auto;
 	max-height: 468px;
 }
