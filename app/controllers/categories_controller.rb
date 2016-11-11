@@ -1,11 +1,13 @@
 class CategoriesController < ApplicationController
-  # before_filter :authenticate_user!
+  before_filter :authenticate_user!, only:[:react_index]
   def index
     @categories = Category.all
   end
+
   def admin_index
     @categories = Category.all
   end
+
   def react_index
     if Category.all.length == 0
       Category.create!(name: "Social Media", description: "To be used on social media platforms", image: "/assets/Social_Image_Icon.svg")
@@ -19,10 +21,12 @@ class CategoriesController < ApplicationController
     @templates = Template.all.order('category_id asc').order('title asc')
     @template = Template.new
   end
+
   def react_frontend
     @templates = Template.all
     @categories = Category.all
   end
+
   def show
     @category = Category.find(params[:id])
   end

@@ -4,7 +4,6 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-
 development:
   adapter: sqlite3
   pool: 5
@@ -17,3 +16,9 @@ production:
   database: digital_resources_production
   username: rails
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+
+test:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000

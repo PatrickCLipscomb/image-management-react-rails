@@ -3,8 +3,7 @@ require 'rails_helper'
 describe "logging in a user" do
   it "logs in a user" do
     FactoryGirl.create(:user)
-    visit root_path
-    click_link 'Go To Admin Page'
+    visit new_user_session_path
     fill_in "Username", :with => 'AlphaAdmin'
     fill_in "Password", :with => "password"
     click_on "Log in"
@@ -15,8 +14,7 @@ end
 describe "logging out a user" do
   it "logs out a user" do
     FactoryGirl.create(:user)
-    visit root_path
-    click_link 'Go To Admin Page'
+    visit admin_path
     fill_in "Username", :with => 'AlphaAdmin'
     fill_in "Password", :with => "password"
     click_on "Log in"
