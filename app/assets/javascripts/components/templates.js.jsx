@@ -99,7 +99,7 @@ class Templates extends BaseComponent {
                             <th className=""> Actions </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                     {templates}
                     </tbody>
                 </table>
