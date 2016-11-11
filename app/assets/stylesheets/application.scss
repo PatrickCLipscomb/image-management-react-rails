@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -53,14 +52,14 @@ table {
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Roboto+Condensed');
 
 
-
-input{
-	color:black;
-}
 // admin page
 .img-thumb {
   width: 80px;
   height: 80px;
+}
+// Login form
+input{
+	color:black;
 }
 
 .landingCategoryImage {
