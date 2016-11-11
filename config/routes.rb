@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :templates do
     member do
-      get 'crop'
+      patch 'crop'
       get 'file_send'
       get 'to_crop'
     end
