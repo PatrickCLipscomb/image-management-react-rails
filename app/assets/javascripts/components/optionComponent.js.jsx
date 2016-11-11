@@ -28,6 +28,7 @@ class OptionComponent extends BaseComponent {
 
   render() {
     var fileDownloadURL = "/templates/" + this.props.template.id + "/file_send"
+    var imageCropURL = "/templates/" + this.props.template.id + "/crop"
     return(
 
       <div className="outside-container-box">
@@ -42,9 +43,9 @@ class OptionComponent extends BaseComponent {
           <div className="parent4">
             <div className="item4"></div>
             <div className="item4 categories">
-              <div className="btn-group">
+              <div className="btn-group btn-div">
                 <a className="categoryLink" href={fileDownloadURL}>I have Photoshop</a>
-                <a className="categoryLink marginLink">I don't have Photoshop</a>
+                <a className="categoryLink marginLink" href={imageCropURL}>I don't have Photoshop</a>
               </div>
             </div>
             <div className="item4"></div>
