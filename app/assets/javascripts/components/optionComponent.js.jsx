@@ -36,7 +36,7 @@ class OptionComponent extends BaseComponent {
           <br></br>
           <div className="parent">
             <div className="item"></div>
-            <div className="item"><h1 className="startingQ">{this.props.template.title} Template</h1></div>
+            <div className="item"><h1 className="templateTitle">{this.props.template.title} Template</h1></div>
             <div className="item"></div>
           </div>
           <div className="parent4">
