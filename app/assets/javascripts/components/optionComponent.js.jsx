@@ -3,7 +3,7 @@
 class OptionComponent extends BaseComponent {
   constructor(props) {
     super(props)
-    this._bind('goBack', 'handleDownload')
+    this._bind('goBack', 'handleDownload', 'imageCropURL')
   }
 
   goBack() {
@@ -26,9 +26,18 @@ class OptionComponent extends BaseComponent {
     }
   }
 
+  imageCropURL(event) {
+    event.preventDefault()
+    var id = this.props.template.id
+    $.ajax({
+      method: 'POST',
+      url: '/templates/' + id + '/crop'
+    })
+  }
+
   render() {
     var fileDownloadURL = "/templates/" + this.props.template.id + "/file_send"
-    var imageCropURL = "/templates/" + this.props.template.id + "/crop"
+    var imageCropURL = "/templates/" + this.props.template.id + "/to_crop"
     return(
 
       <div className="outside-container-box">

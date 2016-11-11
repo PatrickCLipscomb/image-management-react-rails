@@ -22,6 +22,11 @@ class TemplatesController < ApplicationController
     # system/templates/images/000/000/0' + @template.id.to_s + '/original/' + @template.image_file_name.to_s
   end
 
+  def to_crop
+    @template = Template.find(params[:id])
+    render :crop
+  end
+
 
   # Have a seperate model for image that is cropped down by the user. Have this model created whenever the user goes throught the cropping action and allows them to download the image.
 
@@ -29,7 +34,7 @@ class TemplatesController < ApplicationController
     @template = Template.find(params[:id])
     @template.update_attributes(crop_params)
     @template.reprocess_image
-    redirect_to template_path(@template)
+    redirect_to file_send(@template)
   end
 
   def create

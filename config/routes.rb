@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     member do
       patch 'crop'
       get 'file_send'
+      get 'to_crop'
     end
   end
   devise_for :users

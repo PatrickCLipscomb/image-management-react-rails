@@ -1,3 +1,5 @@
+
+
 <div class="outside-container-box">
   <div class="container-box">
     <div class="parent">
@@ -9,14 +11,18 @@
       <div class="item5"></div>
       <div class="item5 categories">
         <div class="btn-group">
-          <%= link_to "Download " + @template.title.capitalize + " Template", @template.image.url(:original, false), :class => "categoryLink" %>
+          <div align="middle">
+            <h2><%= @template.title %></h2>
+            <h3><%= @template.description %></h3>
+            <br>
+            <%= image_tag @template.image.url(:large), :id => "cropbox" %>
+            <%= link_to "Back to Templates Page", front_path, :class => "categoryLink" %>
+          </div>
         </div>
       </div>
       <div class="item5 categories">
         <div class="btn-group">
-          <%= link_to "Back to Templates Page", front_path, :class => "categoryLink" %>
         </div>
-
       </div>
       <div class="item5"></div>
     </div>
