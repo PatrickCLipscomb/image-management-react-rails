@@ -16,7 +16,6 @@ class TemplatesController < ApplicationController
   end
 
   def file_send
-    binding.pry
     @template = Template.find(params[:id])
   end
 
