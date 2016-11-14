@@ -16,10 +16,8 @@ class TemplatesController < ApplicationController
   end
 
   def file_send
+    binding.pry
     @template = Template.find(params[:id])
-    # send_file Rails.root.join("public", @template.image_file_name)
-    # '../../public/images/thumb/missing.png'
-    # system/templates/images/000/000/0' + @template.id.to_s + '/original/' + @template.image_file_name.to_s
   end
 
   def to_crop
@@ -34,7 +32,7 @@ class TemplatesController < ApplicationController
     @template = Template.find(params[:id])
     @template.update_attributes(crop_params)
     @template.reprocess_image
-    redirect_to file_send(@template)
+    render :file_send
   end
 
   def create

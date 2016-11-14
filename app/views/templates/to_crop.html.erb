@@ -1,0 +1,70 @@
+<% if 1 == 0 %>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+      $("#cropbox").Jcrop({
+        onChange: update_crop,
+        onSelect: update_crop,
+        setSelect: [0, 0, <%= @template.image_geometry(:large).width %>, <%= @template.image_geometry(:large).height %>],
+        aspectRatio: 1
+      });
+  });
+  function update_crop(coords) {
+    var rx = 100/coords.w;
+    var ry = 100/coords.h;
+      $("#preview").css({
+        width: Math.round(rx * <%= @template.image_geometry(:large).width %>) + 'px',
+        height: Math.round(ry * <%= @template.image_geometry(:large).height %>) + 'px',
+        marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+        marginTop: '-' + Math.round(ry * coords.y) + 'px'
+      });
+      var ratio =
+		<%= @template.image_geometry(:original).width %> /
+		<%= @template.image_geometry(:large).width %>;
+      $("#crop_x").val(Math.round(coords.x * ratio));
+      $("#crop_y").val(Math.round(coords.y * ratio));
+      $("#crop_w").val(Math.round(coords.w * ratio));
+      $("#crop_h").val(Math.round(coords.h * ratio));
+  }
+</script>
+<% end %>
+
+<div class="outside-container-box">
+  <div class="container-box">
+    <div class="parent">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <div class="parent2">
+      <div class="item5"></div>
+      <div class="item5 categories">
+        <div class="btn-group">
+          <div align="middle">
+            <h2><%= @template.title %></h2>
+            <h3><%= @template.description %></h3>
+            <h4>IMPORTANT: Without ImageMagick Crop Params cannot be generated so the Crop button broken</h4>
+            <br>
+            <%= image_tag @template.image.url(:large), :id => "cropbox" %>
+
+            <%= form_for @template, url: crop_template_path(@template) do |f| %>
+              <% %w[x y w h].each do |attribute| %>
+                <%= f.hidden_field "crop_#{attribute}" %> <br>
+              <% end %>
+              <div class="actions">
+                <%= f.submit "Crop", :class => "categoryLink" %>
+                <br>
+                <br>
+                <%= link_to "Back to Templates Page", front_path, :class => "categoryLink" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="item5 categories">
+        <div class="btn-group">
+        </div>
+      </div>
+      <div class="item5"></div>
+    </div>
+  </div>
+</div>
