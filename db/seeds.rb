@@ -11,11 +11,11 @@ Category.all.each {|a| a.destroy }
 
 
 # The order categories are created matters, don't change this
-Category.create!(name: "Social Media", description: "To be used on social media platforms", image: "/assets/Social_Image_Icon.svg")
+Category.create!(name: "Social Media", description: "To be used on social media platforms", image: "/images/Social_Image_Icon.svg")
 
-Category.create!(name: "Web Ad", description: "To be used to promote Alpha Media", image: "/assets/Web_Ad_Icon.svg")
+Category.create!(name: "Web Ad", description: "To be used to promote Alpha Media", image: "/images/Web_Ad_Icon.svg")
 
-Category.create!(name: "Web Image", description: "To be used for website graphics", image: "/assets/Web_Image_Icon.svg")
+Category.create!(name: "Web Image", description: "To be used for website graphics", image: "/images/Web_Image_Icon.svg")
 
 Template.all.each {|a| a.destroy }
 10.times do
