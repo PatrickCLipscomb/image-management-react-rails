@@ -62,15 +62,15 @@ class Categories extends BaseComponent {
 
               <div className="parent3">
                 <div className="item3">
-                  <img className="landingCategoryImage" src={this.state.categories[0].image}/>
+                  <div id="social"></div>
                 </div>
 
                 <div className="item3">
-                  <img className="landingCategoryImage" src={this.state.categories[1].image}/>
+                  <div id="webad"></div>
                 </div>
 
                 <div className="item3">
-                  <img className="landingCategoryImage" src={this.state.categories[2].image}/>
+                  <div id="webimage"></div>
                 </div>
               </div>
 
