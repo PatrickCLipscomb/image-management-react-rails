@@ -57,7 +57,7 @@ class Templates extends BaseComponent {
         var chosenTemplates = [];
         var currentState = this.state.selectedCatID
         this.state.templates.forEach(function(template) {
-          if (currentState === "All") {
+          if (currentState === "All" && template.title) {
             chosenTemplates.push(template)
           } else if (template.category_id === parseInt(currentState)) {
             chosenTemplates.push(template)

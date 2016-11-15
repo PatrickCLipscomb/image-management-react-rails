@@ -35,14 +35,16 @@ class TemplatesController < ApplicationController
   end
 
   def create
-    @categories = Category.all
-    @category = Category.find(params[:template][:category_id])
-    @template = @category.templates.new(template_params)
+    # @categories = Category.all
+    # @category = Category.find(params[:template][:category_id])
+    # @template = @category.templates.new(template_params)
+    @template = Template.new(template_params)
     if @template.save
+      binding.pry
       flash[:notice] = @template.title + " Template successfully added!"
       respond_to do |format|
         format.json {render json: @template}
-        format.html {redirect_to react_path}
+        format.html {redirect_to :crop}
         format.js
       end
     else

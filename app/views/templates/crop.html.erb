@@ -40,8 +40,10 @@
       <div class="item5 categories">
         <div class="btn-group">
           <div align="middle">
-            <h2><%= @template.title %></h2>
-            <h3><%= @template.description %></h3>
+            <% if @template.title %>
+              <h2><%= @template.title %></h2>
+              <h3><%= @template.description %></h3>
+            <% end %>
             <br>
             <%= image_tag @template.image.url(:large), :id => "cropbox" %>
             <%= form_for @template, url: crop_template_path(@template) do |f| %>
