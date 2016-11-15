@@ -2,7 +2,7 @@ class Template < ActiveRecord::Base
   belongs_to :category
   has_attached_file :image, default_url: "/images/missing.png", :processors => [:cropper], :styles => { :large => "1000x1000>" }
   do_not_validate_attachment_file_type :image
-  # validates :image, :presence => true
+  
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
   def cropping?
