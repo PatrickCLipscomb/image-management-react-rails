@@ -1,16 +1,20 @@
-<div class="intro">
-  <h1>Digital Resources</h1>
-
-<br>
-  <% if current_user %>
-  <h3>Welcome <%= current_user.username %></h3>
-  <% end %>
-
-  <%=link_to "Sign Up", new_user_registration_path, class:"intro-links" %>
-
-  <%=link_to "Go To Admin Page", new_user_session_path, class:"intro-links" %>
-  <% if current_user %>
-  || <%=link_to "Logout", destroy_user_session_path(@user), :method => "delete", class:"intro-links" %>
-  <% end %>
-
+<div class="outside-container-box">
+  <div className="container-box">
+    <div class="parent">
+      <div class="item"></div>
+      <div class="item"><h1 class="startingQ">WHAT WOULD YOU LIKE TO DO?</h1></div>
+      <div class="item"></div>
+    </div>
+    <div class="parent4">
+      <div class="item4"></div>
+      <div class="item4 categories">
+        <div class="btn-group btn-div">
+          <a href="/designers" class="categoryLink">Download Designers Template</a>
+          <!-- <a class="categoryLink" href={fileDownload}>I have Photoshop</a> -->
+          <a href="#" class="categoryLink">Upload and Crop Image</a>
+        </div>
+      </div>
+      <div class="item4"></div>
+    </div>
+  </div>
 </div>
