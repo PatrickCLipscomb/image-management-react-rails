@@ -48,7 +48,7 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
 
-  Paperclip.options[:command_path] = "/usr/local/bin/convert"
+  Paperclip.options[:command_path] = "/usr/bin"
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
