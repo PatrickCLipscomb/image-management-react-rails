@@ -62,6 +62,12 @@ input{
 	color:black;
 }
 
+#cropbox {
+	background-size: contain;
+	padding: 50px;
+	border: 10px solid white
+}
+
 .landingCategoryImage {
   max-width: 160px;
 }

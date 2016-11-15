@@ -5,7 +5,7 @@
         onChange: update_crop,
         onSelect: update_crop,
         setSelect: [0, 0, <%= @template.image_geometry(:large).width %>, <%= @template.image_geometry(:original).height %>],
-        aspectRatio: 1
+        aspectRatio: 16/9
       });
   });
   function update_crop(coords) {
@@ -26,7 +26,6 @@
       $("#template_crop_h").val(Math.round(coords.h * ratio));
   }
 </script>
-
 
 <div class="outside-container-box">
   <div class="container-box">
@@ -54,7 +53,7 @@
                 <%= f.submit "Crop", :class => "categoryLink" %>
                 <br>
                 <br>
-                <%= link_to "Back to Templates Page", front_path, :class => "categoryLink" %>
+                <%= link_to "Back to Templates Page", root_path, :class => "categoryLink" %>
               </div>
             <% end %>
           </div>

@@ -31,7 +31,7 @@ class TemplatesController < ApplicationController
     @template = Template.find(params[:id])
     @template.update_attributes(crop_params)
     @template.reprocess_image
-    render :file_send
+    redirect_to file_send_template_path(@template)
   end
 
   def create
@@ -40,11 +40,12 @@ class TemplatesController < ApplicationController
     # @template = @category.templates.new(template_params)
     @template = Template.new(template_params)
     if @template.save
-      binding.pry
-      flash[:notice] = @template.title + " Template successfully added!"
+      if @template.title
+        flash[:notice] = @template.title + " Template successfully added!"
+      end
       respond_to do |format|
         format.json {render json: @template}
-        format.html {redirect_to :crop}
+        format.html {render :crop}
         format.js
       end
     else
