@@ -9,11 +9,10 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users
-    # root :to => "home#index"
-    root :to => 'categories#react_frontend'
-
+    root :to => "home#index"
+  get 'designers' =>'categories#react_frontend'
+  
   get 'admin' => "categories#react_index"
-  get 'front' => "categories#react_frontend"
 
   # get 'admin' => "categories#admin_index"
   # get 'react' => "categories#react_index"
