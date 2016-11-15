@@ -67,15 +67,14 @@ a {
 }
 
 #cropbox {
-	background-size: contain;
-	padding: 50px;
-	border: 10px solid white
 }
 
 .cropper-container {
-	min-width: 1100px;
-	min-height: 1100px;
+	background-size: contain;
 	background-color: white;
+	margin-top: 15%;
+	margin-bottom: 10%;
+	padding: 50px;
 }
 
 .landingCategoryImage {
