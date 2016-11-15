@@ -7,6 +7,12 @@
         setSelect: [0, 0, <%= @template.image_geometry(:large).width %>, <%= @template.image_geometry(:original).height %>],
         aspectRatio: 16/9
       });
+      $("#submit-btn").click(function(event) {
+        event.preventDefault();
+        $("#crop-form").submit();
+        console.log("here here")
+        $("#download-page").trigger('click');
+      });
   });
   function update_crop(coords) {
     var rx = 100/coords.w;
@@ -35,13 +41,15 @@
             <% end %>
             <br>
             <%= image_tag @template.image.url(:large), :id => "cropbox" %>
-            <%= form_for @template, url: crop_template_path(@template) do |f| %>
+            <%= form_for @template, url: crop_template_path(@template), :html => {:id => "crop-form"} do |f| %>
               <% %w[x y w h].each do |attribute| %>
                 <%= f.hidden_field "crop_#{attribute}" %> <br>
               <% end %>
               <div class="actions">
-                <%= f.submit "Crop", :class => "categoryLink" %>
+                <a id="submit-btn" class="categoryLink">Crop</a>
+
                 <%= link_to "Back to Templates Page", root_path, :class => "categoryLink" %>
               </div>
             <% end %>
+            <a href="/templates/<%= @template.id.to_s %>/file_send" id="download-page" style="display:none;"></a>
           </div>

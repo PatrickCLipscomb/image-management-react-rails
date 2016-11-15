@@ -1,9 +1,18 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#file-input').on("change", function() {
+      $('#upload-image').removeAttr('disabled');
+    });
+  })
+
+</script>
+
 <div class="outside-container-box">
   <div class="container-box">
-    <a class="glyphicon glyphicon-arrow-left position" href="/">BACK</a>
+    <span class="glyphicon glyphicon-arrow-left position"><a class="inner-glyph" href="/">BACK</a></span>
     <div class="parent">
       <div class="item"></div>
-      <div class="item"><h1 class="startingQ">Upload your image</h1></div>
+      <div class="item"><h1 class="startingQ">UPLOAD YOUR IMAGE</h1></div>
       <div class="item"></div>
     </div>
     <div class="parent4">
@@ -16,7 +25,7 @@
                 <%= f.label :image, "Image File" %>
                 <%= f.file_field :image, class: 'form-control', :id => "file-input"%>
               </div>
-              <%= f.submit "Upload Image", :class => "btn btn-info btn-sm" %>
+              <%= f.submit "Upload Image", :class => "btn btn-info btn-sm", :id => "upload-image", :disabled => true %>
             </div>
           <%end%>
         </div>

@@ -25,7 +25,8 @@ class Categories extends BaseComponent {
     this.setState({landingPageShow: false, currentCategory: this.state.categories[0]})
   }
 
-  backToLanding() {
+  backToLanding(event) {
+    event.preventDefault();
     this.setState({landingPageShow: true})
   }
 
@@ -50,7 +51,7 @@ class Categories extends BaseComponent {
     return(
       <div className="outside-container-box">
         <div className="container-box">
-          <a className="glyphicon glyphicon-arrow-left position" href="/">BACK</a>
+          <span className="glyphicon glyphicon-arrow-left position"><a className="inner-glyph" href="/">BACK</a></span>
           <div className="parent">
             <div className="item"></div>
             <div className="item"><h1 className="startingQ">WHAT WOULD YOU LIKE TO CREATE?</h1></div>
@@ -109,7 +110,7 @@ class Categories extends BaseComponent {
     return (
       <div className="outside-container-box">
         <div className="container-box">
-          <span className="glyphicon glyphicon-arrow-left position" onClick={this.backToLanding}>BACK</span>
+          <span className="glyphicon glyphicon-arrow-left position" onClick={this.backToLanding}><a className="inner-glyph">BACK</a></span>
           <div className="parent">
             <div className="item"></div>
             <div className="item"><h1 className="startingQ">{header} Templates</h1></div>
