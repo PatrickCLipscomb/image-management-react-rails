@@ -35,9 +35,6 @@ class TemplatesController < ApplicationController
   end
 
   def create
-    # @categories = Category.all
-    # @category = Category.find(params[:template][:category_id])
-    # @template = @category.templates.new(template_params)
     @template = Template.new(template_params)
     if @template.save
       if @template.title

@@ -50,6 +50,7 @@ class Categories extends BaseComponent {
     return(
       <div className="outside-container-box">
         <div className="container-box">
+          <a className="glyphicon glyphicon-arrow-left position" href="/">BACK</a>
           <div className="parent">
             <div className="item"></div>
             <div className="item"><h1 className="startingQ">WHAT WOULD YOU LIKE TO CREATE?</h1></div>

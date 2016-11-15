@@ -27,18 +27,8 @@
   }
 </script>
 
-<div class="outside-container-box">
-  <div class="container-box">
-    <div class="parent">
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-    </div>
-    <div class="parent2">
-      <div class="item5"></div>
-      <div class="item5 categories">
-        <div class="btn-group">
-          <div align="middle">
+
+          <div align="middle" class="cropper-container">
             <% if @template.title %>
               <h2><%= @template.title %></h2>
               <h3><%= @template.description %></h3>
@@ -51,19 +41,7 @@
               <% end %>
               <div class="actions">
                 <%= f.submit "Crop", :class => "categoryLink" %>
-                <br>
-                <br>
                 <%= link_to "Back to Templates Page", root_path, :class => "categoryLink" %>
               </div>
             <% end %>
           </div>
-        </div>
-      </div>
-      <div class="item5 categories">
-        <div class="btn-group">
-        </div>
-      </div>
-      <div class="item5"></div>
-    </div>
-  </div>
-</div>
