@@ -2,7 +2,7 @@
   <div class="parent">
 
     <div class="item5">
-      <%=link_to "Logout", destroy_user_session_path(@user), :method => "delete", class:"intro-links pull-right" %>
+      <%=link_to "Logout", destroy_user_session_path(@user), :method => "delete", class:"login-links pull-right" %>
       <h3 class="form-center white-font">Add a new Template</h3>
       <%= render "templates/form", {data: @template} %>
     </div>

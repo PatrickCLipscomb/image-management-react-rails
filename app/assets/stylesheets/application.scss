@@ -109,19 +109,19 @@ th{
 }
 // categories
 .Social {
-  background-color: #B2EBF2;
-
-}
-
-.Image {
-  background-color: #4DD0E1;
+  background-color: #D5D5D5;
 
 }
 
 .Ad {
-  background-color: #00BCD4;
+  background-color: #E6E7E8;
 
 }
+.Image {
+  background-color: #D5D5D5;
+
+}
+
 
 .spaced {
 	width: 200px;
@@ -141,15 +141,18 @@ th{
 	color:black;
 }
 
-.intro{
-	color:white;
+.login{
+	color:black;
+  background: white;
+  padding: 60px 120px
+
 }
-.intro-links{
-	color:white;
-}
-.intro-links:hover{
-	color:white;
-}
+// .login-links{
+// 	color:black;
+// }
+// .login-links:hover{
+// 	color:black;
+// }
 
 html, body {
   height: 100%;
@@ -195,9 +198,9 @@ body {
 	background: white;
   justify-content: center;
   width: 800px;
+  min-height: 468px;
   padding-top: 40px;
   padding-bottom: 60px;
-	min-height: 468px;
 	align-items: center;
 	position: relative;
 }
@@ -206,9 +209,6 @@ body {
 	position: absolute;
 	top:10px;
 	left:10px;
-}
-.container-box{
-
 }
 
 .parent {
@@ -236,7 +236,6 @@ body {
   font-size: 60px;
   color: #F1592A;
 }
-
 
 .btn-div {
 	min-width: 370px;
@@ -325,7 +324,6 @@ body {
 
 .btn-group{
 	padding:5px;
-
 }
 
 // back link
