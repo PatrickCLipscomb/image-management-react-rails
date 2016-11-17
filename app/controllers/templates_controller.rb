@@ -36,6 +36,21 @@ class TemplatesController < ApplicationController
 
   def create
     @template = Template.new(template_params)
+    @aspect1 = nil
+    @aspect2 = nil
+    if params[:aspect] == "0"
+      @aspect1 = 1
+      @aspect2 = 1
+    elsif params[:aspect] == "1"
+      @aspect1 = 4
+      @aspect2 = 3
+    elsif params[:aspect] == "2"
+      @aspect1 = 16
+      @aspect2 = 9
+    elsif params[:aspect] == "3"
+      @aspect1 = 5
+      @aspect2 = 7
+    end
     if @template.save
       if @template.title
         flash[:notice] = @template.title + " Template successfully added!"

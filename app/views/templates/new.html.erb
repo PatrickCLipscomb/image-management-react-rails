@@ -27,6 +27,23 @@
               </div>
               <%= f.submit "Upload Image", :class => "btn btn-info btn-sm", :id => "upload-image", :disabled => true %>
             </div>
+            <div class="form-group">
+              <h4>Please Select An Aspect Ratio</h4>
+              <%= radio_button_tag(:aspect, "4") %>
+              <%= label_tag(:aspect_4, "No Ratio") %>
+              <br>
+              <%= radio_button_tag(:aspect, "0") %>
+              <%= label_tag(:aspect_0, "1:1 Aspect Ratio") %>
+              <br>
+              <%= radio_button_tag(:aspect, "1") %>
+              <%= label_tag(:aspect_1, "4:3 Aspect Ratio") %>
+              <br>
+              <%= radio_button_tag(:aspect, "2") %>
+              <%= label_tag(:aspect_2, "16:9 Aspect Ratio") %>
+              <br>
+              <%= radio_button_tag(:aspect, "3") %>
+              <%= label_tag(:aspect_3, "5:7 Aspect Ratio") %>
+            </div>
           <%end%>
         </div>
       </div>

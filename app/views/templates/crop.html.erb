@@ -5,7 +5,9 @@
         onChange: update_crop,
         onSelect: update_crop,
         setSelect: [0, 0, <%= @template.image_geometry(:large).width %>, <%= @template.image_geometry(:original).height %>],
-        aspectRatio: 16/9
+        <% if @aspect1 != nil %>
+          aspectRatio: <%= @aspect1.to_i %>/<%= @aspect2.to_i %>
+        <% end %>
       });
       $("#submit-btn").click(function(event) {
         event.preventDefault();
@@ -42,9 +44,18 @@
             <br>
             <%= image_tag @template.image.url(:large), :id => "cropbox" %>
             <%= form_for @template, url: crop_template_path(@template), :html => {:id => "crop-form"} do |f| %>
-              <% %w[x y w h].each do |attribute| %>
+              <% %w[x y].each do |attribute| %>
                 <%= f.hidden_field "crop_#{attribute}" %> <br>
               <% end %>
+              <div class="field">
+                <%= f.label "Image Width in Pixels" %>
+                <%= f.text_field "crop_w" %>
+              </div>
+              <div class="field">
+                <%= f.label "Image Height in Pixels" %>
+                <%= f.text_field "crop_h" %>
+              </div>
+              <br><br>
               <div class="actions">
                 <a id="submit-btn" class="categoryLink">Crop</a>
 
