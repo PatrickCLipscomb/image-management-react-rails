@@ -3,6 +3,11 @@
 
 A Ruby on Rails application that makes heavy use of the React-Rails Gem to provide a streamlined experience for users that want a guarded image management platform. Users have the ability to crop and download images that are not saved long term to the database. The cropping process has configurable aspect ratio settings. The Admin user is able to manage saved images through a dashboard built in ReactJS.
 
+Find *Image Manager* live on Heroku.  
+```
+https://image-manager-patrick-lipscomb.herokuapp.com/
+```
+
 ##  Important Notice
 
 When logging in for the first time, use **User Name: Alpha Admin**  **Password: password**
